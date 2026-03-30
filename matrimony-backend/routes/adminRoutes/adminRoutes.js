@@ -83,6 +83,16 @@ adminRoutes.delete("/delete-user/:id", adminController.deleteUser);
 adminRoutes.put("/restore-user/:id", adminController.restoreUser);
 adminRoutes.get("/deleted-users", adminController.getDeletedUsers);
 
+adminRoutes.put(
+  "/verify-id-proof/:userId",
+  adminController.verifyIdProof
+);
+
+adminRoutes.put(
+  "/verify-mobile/:userId",
+  adminController.verifyMobile
+);
+
 /* =========================
    PLAN MANAGEMENT
 ========================== */

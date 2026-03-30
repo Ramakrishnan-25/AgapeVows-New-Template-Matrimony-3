@@ -693,6 +693,78 @@ const getDeletedUsers = async (req, res) => {
 
 
 
+/* =========================
+   VERIFY ID PROOF
+========================== */
+const verifyIdProof = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const { status } = req.body; // "Verified" or "Rejected"
+
+    if (!["Verified", "Rejected"].includes(status)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid status. Must be 'Verified' or 'Rejected'.",
+      });
+    }
+
+    const userData = await userModel.findByIdAndUpdate(
+      userId,
+      { idVerificationStatus: status },
+      { new: true }
+    );
+
+    if (!userData) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: `ID Proof ${status.toLowerCase()} successfully`,
+    });
+  } catch (err) {
+    console.error("Error verifying ID proof:", err);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
+const verifyMobile = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const { isVerified } = req.body;
+
+    const userData = await userModel.findByIdAndUpdate(
+      userId,
+      { isPhoneVerified: isVerified },
+      { new: true }
+    );
+
+    if (!userData) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: `Mobile phone ${isVerified ? "verified" : "unverified"} successfully`,
+    });
+  } catch (err) {
+    console.error("Error verifying mobile phone:", err);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
 module.exports = {
   getPaidUsersData,
   approveNewUser,
@@ -705,6 +777,6 @@ module.exports = {
   restoreUser,
   updateUser,
   getDeletedUsers,
-
-
+  verifyIdProof,
+  verifyMobile,
 };
