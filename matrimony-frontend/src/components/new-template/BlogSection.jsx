@@ -8,8 +8,8 @@ export default function BlogSection() {
       <div
         className="hom-blog"
         style={{
-          padding: '30px 0',
-          marginTop: '-60px'
+          padding: '10px 0',
+          marginTop: '0px'
         }}
       >
         <div className="container">

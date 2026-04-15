@@ -1,6 +1,6 @@
 export default function FindYourMatchCTASection() {
   return (
-    <section style={{ paddingTop: '40px', paddingBottom: '40px' }}> 
+    <section style={{ paddingTop: '10px', paddingBottom: '40px' }}> 
       <div className="str count">
         <div className="container">
           <div className="row">
