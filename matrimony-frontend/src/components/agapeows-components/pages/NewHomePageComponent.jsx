@@ -27,23 +27,26 @@ const NewHomePageComponent = () => {
         <MainLayout />
       </div>
       <div className="pt-16">
-        <h1 style={{ background: 'red', color: 'white', textAlign: 'center' }}>CHECKING UPDATE...</h1>
         <HeroSearchSection />
-        <TrustBrandsSection />
-        <QuickAccessSection />
-        <AboutWelcomeSection />
-        <WhyChooseUsSection />
-        <FeaturesSection />
+        
+        <div className="flex flex-col gap-12 lg:gap-20 md:py-10 overflow-hidden">
+          <TrustBrandsSection />
+          <QuickAccessSection />
+          <AboutWelcomeSection />
+          <WhyChooseUsSection />
+          <FeaturesSection />
 
-        {/* Retention: Keeping the original Count section as requested */}
-        <CountModal />
+          {/* Retention: Keeping the original Count section as requested */}
+          <CountModal />
 
-        <HowItWorksSection />
-        <RecentCouplesSection />
-        <TeamSection />
-        <GallerySection />
-        <BlogSection />
-        <FindYourMatchCTASection />
+          <HowItWorksSection />
+          <RecentCouplesSection />
+          <TeamSection />
+          <GallerySection />
+          <BlogSection />
+          <FindYourMatchCTASection />
+        </div>
+
         <FooterSection />
       </div>
     </div>
