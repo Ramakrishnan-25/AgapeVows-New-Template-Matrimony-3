@@ -33,8 +33,8 @@ const allowedOrigins = [
   "https://agape-vows-matrimony-final.vercel.app",
   "https://agape-vows-matrimony-final-2v1i.vercel.app",
   "https://matrimony-project-client.vercel.app",
-   "https://matrimony-project-admin-and-backend.vercel.app"
- 
+  "https://matrimony-project-admin-and-backend.vercel.app",
+  "https://agape-vows-new-template-matrimony.vercel.app"
 ];
 
 const corsOptions = {
