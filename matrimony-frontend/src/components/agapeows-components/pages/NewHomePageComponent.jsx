@@ -29,7 +29,7 @@ const NewHomePageComponent = () => {
       <div className="pt-16">
         <HeroSearchSection />
         
-        <div className="flex flex-col gap-12 lg:gap-20 md:py-10 overflow-hidden">
+        <div className="flex flex-col gap-6 lg:gap-8 py-4 sm:py-8 overflow-hidden max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
           <TrustBrandsSection />
           <QuickAccessSection />
           <AboutWelcomeSection />
