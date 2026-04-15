@@ -14,8 +14,7 @@ import gal6 from '../../assets/new-template/images/gallery/6.jpg';
 export default function FooterSection() {
   return (
     <>
-      <footer className="agape-vows-footer" style={{
-        backgroundColor: '#7c3aed',
+      <footer className="agape-vows-footer bg-purple-600" style={{
         color: '#fff',
         padding: '50px 0 20px',
         marginTop: '80px', /* This separates it from the section above */

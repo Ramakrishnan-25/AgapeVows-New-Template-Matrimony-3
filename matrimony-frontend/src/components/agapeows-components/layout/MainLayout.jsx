@@ -299,34 +299,31 @@ const MainLayout = () => {
             <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
               <button
                 onClick={() => handleNavigate("/about-us")}
-                className={`transition-all duration-200 font-medium py-2 ${
-                  location.pathname === "/about-us"
+                className={`transition-all duration-200 font-medium py-2 ${location.pathname === "/about-us"
                     ? "text-purple-600 font-bold border-b-2 border-purple-600"
                     : "text-gray-800 hover:text-purple-600"
-                }`}
+                  }`}
               >
                 ABOUT US
               </button>
 
-             {isUserActive && (
-  <button
-    onClick={() => handleNavigate("/user/find-matches")}
-    className={`group flex items-center space-x-2 font-medium transition-all duration-200 py-2 ${
-      location.pathname === "/user/find-matches"
-        ? "text-purple-600 font-bold border-b-2 border-purple-600"
-        : "text-gray-800 hover:text-purple-600"
-    }`}
-  >
-    <Search
-      className={`w-4 h-4 transition-colors duration-200 ${
-        location.pathname === "/user/find-matches"
-          ? "text-purple-600"
-          : "text-gray-800 group-hover:text-purple-600"
-      }`}
-    />
-    <span>SEARCH</span>
-  </button>
-)}
+              {isUserActive && (
+                <button
+                  onClick={() => handleNavigate("/user/find-matches")}
+                  className={`group flex items-center space-x-2 font-medium transition-all duration-200 py-2 ${location.pathname === "/user/find-matches"
+                      ? "text-purple-600 font-bold border-b-2 border-purple-600"
+                      : "text-gray-800 hover:text-purple-600"
+                    }`}
+                >
+                  <Search
+                    className={`w-4 h-4 transition-colors duration-200 ${location.pathname === "/user/find-matches"
+                        ? "text-purple-600"
+                        : "text-gray-800 group-hover:text-purple-600"
+                      }`}
+                  />
+                  <span>SEARCH</span>
+                </button>
+              )}
 
               <div
                 className="relative"
@@ -334,18 +331,17 @@ const MainLayout = () => {
                 onMouseLeave={() => setIsExploreDropdownVisible(false)}
               >
                 <button
-                  className={`transition-all duration-200 font-medium flex items-center py-2 ${
-                    location.pathname.includes("/personalized-matrimony") ||
-                    location.pathname.includes("/nri-matrimony") ||
-                    location.pathname.includes("/church-partner") ||
-                    location.pathname.includes("/matrimonial-advisor") ||
-                    location.pathname.includes("/marital-counseling") ||
-                    location.pathname.includes("/bridal-makeup") ||
-                    location.pathname.includes("/insurance-services") ||
-                    location.pathname === "/user/user-service-page"
+                  className={`transition-all duration-200 font-medium flex items-center py-2 ${location.pathname.includes("/personalized-matrimony") ||
+                      location.pathname.includes("/nri-matrimony") ||
+                      location.pathname.includes("/church-partner") ||
+                      location.pathname.includes("/matrimonial-advisor") ||
+                      location.pathname.includes("/marital-counseling") ||
+                      location.pathname.includes("/bridal-makeup") ||
+                      location.pathname.includes("/insurance-services") ||
+                      location.pathname === "/user/user-service-page"
                       ? "text-purple-600 font-bold border-b-2 border-purple-600"
                       : "text-gray-800 hover:text-purple-600"
-                  }`}
+                    }`}
                 >
                   SERVICES <ChevronDown className="w-4 h-4 ml-1" />
                 </button>
@@ -357,22 +353,20 @@ const MainLayout = () => {
 
               <button
                 onClick={() => handleNavigate("/user/events-page")}
-                className={`transition-all duration-200 font-medium py-2 ${
-                  location.pathname === "/user/events-page"
+                className={`transition-all duration-200 font-medium py-2 ${location.pathname === "/user/events-page"
                     ? "text-purple-600 font-bold border-b-2 border-purple-600"
                     : "text-gray-800 hover:text-purple-600"
-                }`}
+                  }`}
               >
                 EVENTS
               </button>
 
               <button
                 onClick={() => handleNavigate("/user/user-plan-selection")}
-                className={`transition-all duration-200 font-medium py-2 ${
-                  location.pathname === "/user/user-plan-selection"
+                className={`transition-all duration-200 font-medium py-2 ${location.pathname === "/user/user-plan-selection"
                     ? "text-purple-600 font-bold border-b-2 border-purple-600"
                     : "text-gray-800 hover:text-purple-600"
-                }`}
+                  }`}
               >
                 PLANS
               </button>
@@ -383,12 +377,11 @@ const MainLayout = () => {
                 onMouseLeave={() => setIsHelpDropdownVisible(false)}
               >
                 <button
-                  className={`transition-all duration-200 font-medium flex items-center py-2 ${
-                    location.pathname === "/help-support" ||
-                    location.pathname === "/report-issue"
+                  className={`transition-all duration-200 font-medium flex items-center py-2 ${location.pathname === "/help-support" ||
+                      location.pathname === "/report-issue"
                       ? "text-purple-600 font-bold border-b-2 border-purple-600"
                       : "text-gray-800 hover:text-purple-600"
-                  }`}
+                    }`}
                 >
                   HELP & SUPPORT <ChevronDown className="w-4 h-4 ml-1" />
                 </button>
@@ -471,11 +464,10 @@ const MainLayout = () => {
                     handleNavigate("/about-us");
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`text-left font-medium p-3 rounded-md transition-colors ${
-                    location.pathname === "/about-us"
+                  className={`text-left font-medium p-3 rounded-md transition-colors ${location.pathname === "/about-us"
                       ? "text-purple-600 bg-purple-50"
                       : "text-gray-800 hover:text-purple-600 hover:bg-gray-50"
-                  }`}
+                    }`}
                 >
                   ABOUT US
                 </button>
@@ -486,11 +478,10 @@ const MainLayout = () => {
                       handleNavigate("/user/find-matches");
                       setIsMobileMenuOpen(false);
                     }}
-                    className={`text-left font-medium p-3 rounded-md transition-colors ${
-                      location.pathname === "/user/find-matches"
+                    className={`text-left font-medium p-3 rounded-md transition-colors ${location.pathname === "/user/find-matches"
                         ? "text-purple-600 bg-purple-50"
                         : "text-gray-800 hover:text-purple-600 hover:bg-gray-50"
-                    }`}
+                      }`}
                   >
                     SEARCH
                   </button>
@@ -505,22 +496,22 @@ const MainLayout = () => {
                     <span>SERVICES</span>
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isMobileServicesOpen ? "rotate-180" : ""}`} />
                   </button>
-                  
+
                   {/* Expanded Dropdown Panel */}
                   <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isMobileServicesOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"}`}>
                     <div className="pl-4 pr-2 flex flex-col space-y-1 mt-1 bg-gray-50/50 rounded-md py-2 border-l-2 border-purple-100 ml-2">
-                       {SERVICE_CATEGORIES.map((category, index) => (
-                         <button
-                           key={index}
-                           onClick={() => {
-                             handleNavigate(category.path);
-                             setIsMobileMenuOpen(false);
-                           }}
-                           className="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-md transition-colors"
-                         >
-                           {category.title}
-                         </button>
-                       ))}
+                      {SERVICE_CATEGORIES.map((category, index) => (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            handleNavigate(category.path);
+                            setIsMobileMenuOpen(false);
+                          }}
+                          className="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-md transition-colors"
+                        >
+                          {category.title}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -530,11 +521,10 @@ const MainLayout = () => {
                     handleNavigate("/user/events-page");
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`text-left font-medium p-3 rounded-md transition-colors ${
-                    location.pathname === "/user/events-page"
+                  className={`text-left font-medium p-3 rounded-md transition-colors ${location.pathname === "/user/events-page"
                       ? "text-purple-600 bg-purple-50"
                       : "text-gray-800 hover:text-purple-600 hover:bg-gray-50"
-                  }`}
+                    }`}
                 >
                   EVENTS
                 </button>
@@ -544,11 +534,10 @@ const MainLayout = () => {
                     handleNavigate("/user/user-plan-selection");
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`text-left font-medium p-3 rounded-md transition-colors ${
-                    location.pathname === "/user/user-plan-selection"
+                  className={`text-left font-medium p-3 rounded-md transition-colors ${location.pathname === "/user/user-plan-selection"
                       ? "text-purple-600 bg-purple-50"
                       : "text-gray-800 hover:text-purple-600 hover:bg-gray-50"
-                  }`}
+                    }`}
                 >
                   PLANS
                 </button>
@@ -562,21 +551,21 @@ const MainLayout = () => {
                     <span>HELP & SUPPORT</span>
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isMobileHelpOpen ? "rotate-180" : ""}`} />
                   </button>
-                  
+
                   <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isMobileHelpOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"}`}>
                     <div className="pl-4 pr-2 flex flex-col space-y-1 mt-1 bg-gray-50/50 rounded-md py-2 border-l-2 border-purple-100 ml-2">
-                       {HELP_OPTIONS.map((item, index) => (
-                         <button
-                           key={index}
-                           onClick={() => {
-                             handleNavigate(item.path);
-                             setIsMobileMenuOpen(false);
-                           }}
-                           className="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-md transition-colors"
-                         >
-                           {item.title}
-                         </button>
-                       ))}
+                      {HELP_OPTIONS.map((item, index) => (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            handleNavigate(item.path);
+                            setIsMobileMenuOpen(false);
+                          }}
+                          className="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-md transition-colors"
+                        >
+                          {item.title}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -605,7 +594,7 @@ const MainLayout = () => {
                         <div className="text-purple-600 font-medium text-xs">MY PROFILE</div>
                       </div>
                     </div>
-                    
+
                     <button
                       onClick={() => {
                         handleNavigate("/user/user-dashboard-page");
@@ -652,9 +641,9 @@ const MainLayout = () => {
                     >
                       User Settings
                     </button>
-                    
+
                     <div className="my-2 border-t border-gray-100"></div>
-                    
+
                     <button
                       onClick={() => {
                         handleLogOut();
