@@ -34,12 +34,12 @@ export default function FooterSection() {
             justify-content: center; 
             transition: 0.3s;
           }
-          .agape-vows-footer .soc-icon-wrap:hover { transform: translateY(-5px); background: #ffd700; }
+          .agape-vows-footer .soc-icon-wrap:hover { transform: translateY(-5px); background: #d4af37; }
           .agape-vows-footer .soc-icon-wrap img { width: 20px; filter: grayscale(1) contrast(200%); }
           .footer-section-title { 
             font-size: 22px; 
             font-weight: 700; 
-            color: #ffd700; 
+            color: #d4af37; 
             margin-bottom: 30px; 
             text-transform: capitalize;
           }
@@ -54,7 +54,7 @@ export default function FooterSection() {
           }
           .footer-input::placeholder { color: rgba(255,255,255,0.6); }
           .footer-submit {
-            background: #ffd700;
+            background: #d4af37;
             color: #000;
             border: none;
             padding: 12px 35px;

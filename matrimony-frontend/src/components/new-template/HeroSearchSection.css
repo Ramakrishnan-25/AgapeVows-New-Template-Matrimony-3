@@ -42,7 +42,7 @@
 }
 
 .hero-badge i {
-    color: #ffd700;
+    color: #d4af37;
     margin-right: 5px;
     font-style: normal;
 }
@@ -243,7 +243,7 @@
 .hero-search-btn {
     width: 100%;
     padding: 15px;
-    background: #ffd700;
+    background: #d4af37;
     color: #000;
     border: none;
     border-radius: 12px;
