@@ -411,7 +411,7 @@ const MainLayout = () => {
                       </div>
                     )}
                     <div>
-                      <div className="text-gray-800 font-medium">
+                      <div className="font-medium" style={{ color: '#d4af37' }}>
                         {userName}
                       </div>
                       <div className="text-gray-500 text-sm flex items-center">
@@ -588,7 +588,7 @@ const MainLayout = () => {
                         </div>
                       )}
                       <div>
-                        <div className="text-gray-900 font-semibold text-sm">
+                        <div className="font-semibold text-sm" style={{ color: '#d4af37' }}>
                           {userName}
                         </div>
                         <div className="text-purple-600 font-medium text-xs">MY PROFILE</div>
