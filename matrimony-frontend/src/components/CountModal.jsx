@@ -28,7 +28,7 @@ const CountModal = () => {
     fetchCounts();
   }, []);
   return (
-    <section className="py-16 my-10">
+    <section className="py-4 my-2">
       <div className="container mx-auto px-6 sm:px-10 lg:px-16">
         <div className="bg-purple-50/80 p-10 md:p-16 rounded-[4rem] shadow-sm border border-purple-100">
           <div className="row">

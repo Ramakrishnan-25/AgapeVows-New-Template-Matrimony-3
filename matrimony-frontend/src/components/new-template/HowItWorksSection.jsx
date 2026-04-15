@@ -11,9 +11,8 @@ export default function HowItWorksSection() {
       <div
         className="wedd-tline"
         style={{
-          paddingTop: '40px',
-          paddingBottom: '80px',
-          marginTop: '40px',
+          paddingTop: '20px',
+          paddingBottom: '40px',
         }}
       >
         <div className="container">
