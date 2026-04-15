@@ -212,12 +212,12 @@ export default function HeroSearchSection() {
         state: { formData: formData },
       });
     } else {
-      navigate("/user/user-login", {
-        state: {
-          from: "/show-searched-result",
-          formData: formData,
-        },
-      });
+      // Open Login Sidebar Popup
+      const menuPop = document.querySelector('.menu-pop1');
+      const popBg = document.querySelector('.pop-bg');
+      if (menuPop) menuPop.classList.add('act');
+      if (popBg) popBg.classList.add('act');
+      document.body.style.overflow = 'hidden';
     }
   };
 
@@ -252,7 +252,10 @@ export default function HeroSearchSection() {
       </section>
 
       {/* HERO CONTENT & SEARCH */}
-      <section className="hero-search-container">
+     <section 
+  className="hero-search-container"
+  style={{ marginBottom: '-34px' }}
+>
         <div className="container">
           <div className="hero-content-wrapper">
 

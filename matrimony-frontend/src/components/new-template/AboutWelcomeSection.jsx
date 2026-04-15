@@ -4,7 +4,7 @@ export default function AboutWelcomeSection() {
   return (
     <section>
       <div className="ab-wel">
-        <div className="container">
+        <div className="container" style={{ maxWidth: '1350px', width: '100%' }}>
           <div className="row">
             <div className="col-lg-6">
               <div className="ab-wel-lhs">

@@ -39,7 +39,7 @@ export default function RecentCouplesSection() {
           position: 'relative' 
         }}
       >
-        <div className="container">
+      <div className="container" style={{ maxWidth: '1350px', width: '100%' }}>
           <div className="row">
             
             <div className="home-tit" style={{ textAlign: 'center', marginBottom: '50px' }}>

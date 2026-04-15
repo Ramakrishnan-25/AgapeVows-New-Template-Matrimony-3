@@ -25,7 +25,7 @@ export default function BlogSection() {
           marginTop: '0px',
         }}
       >
-        <div className="container">
+        <div className="container" style={{ maxWidth: '1350px', width: '100%' }}>
           <div className="row">
             <div className="home-tit">
               <p style={{ color: '#000000' }}>Blog posts</p>
@@ -68,7 +68,7 @@ export default function BlogSection() {
                 .blog-swiper-card:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(124,58,237,0.12); }
                 .blog-swiper-card img {
                   width: 100%;
-                  height: 200px;
+                  height: 400px;
                   object-fit: cover;
                   display: block;
                 }

@@ -4,7 +4,7 @@ export default function WhyChooseUsSection() {
       <section>
         <div className="str">
           <div className="ban-inn ban-home">
-            <div className="container">
+          <div className="container-fluid">
               <div className="row">
                 <div className="hom-ban">
                   <div className="ban-tit">

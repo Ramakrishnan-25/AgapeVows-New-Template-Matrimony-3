@@ -17,6 +17,7 @@ import { getUserProfile } from "../../../api/axiosService/userAuthService";
 /* import profileImg from "../../../assets/images/profiles/1.jpg"; */ // Removed as we use generic icon now
 import PreLoader from "../../PreLoader";
 import GlobalSearchModal from "../../GlobalSearchModal";
+import SidebarLoginComponent from "../../new-template/SidebarLoginComponent";
 
 export const SERVICE_CATEGORIES = [
   { title: "Personalized Matrimony", path: "/personalized-matrimony" },
@@ -189,6 +190,22 @@ const MainLayout = () => {
     window.location.href = path;
   };
 
+  const openLoginPopup = (e) => {
+    e.preventDefault();
+    const menuPop = document.querySelector('.menu-pop1');
+    const popBg = document.querySelector('.pop-bg');
+    if (menuPop) menuPop.classList.add('act');
+    if (popBg) popBg.classList.add('act');
+    document.querySelectorAll('.mob-me-all').forEach((el) => el.classList.remove('act'));
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closePopup = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    document.querySelectorAll('.menu-pop, .pop-bg, .mob-me-all').forEach((el) => el.classList.remove('act'));
+    document.body.style.overflow = 'visible';
+  };
+
   return (
     <>
       {/* <PreLoader /> */}
@@ -300,8 +317,8 @@ const MainLayout = () => {
               <button
                 onClick={() => handleNavigate("/about-us")}
                 className={`transition-all duration-200 font-medium py-2 ${location.pathname === "/about-us"
-                    ? "text-purple-600 font-bold border-b-2 border-purple-600"
-                    : "text-gray-800 hover:text-purple-600"
+                  ? "text-purple-600 font-bold border-b-2 border-purple-600"
+                  : "text-gray-800 hover:text-purple-600"
                   }`}
               >
                 ABOUT US
@@ -311,14 +328,14 @@ const MainLayout = () => {
                 <button
                   onClick={() => handleNavigate("/user/find-matches")}
                   className={`group flex items-center space-x-2 font-medium transition-all duration-200 py-2 ${location.pathname === "/user/find-matches"
-                      ? "text-purple-600 font-bold border-b-2 border-purple-600"
-                      : "text-gray-800 hover:text-purple-600"
+                    ? "text-purple-600 font-bold border-b-2 border-purple-600"
+                    : "text-gray-800 hover:text-purple-600"
                     }`}
                 >
                   <Search
                     className={`w-4 h-4 transition-colors duration-200 ${location.pathname === "/user/find-matches"
-                        ? "text-purple-600"
-                        : "text-gray-800 group-hover:text-purple-600"
+                      ? "text-purple-600"
+                      : "text-gray-800 group-hover:text-purple-600"
                       }`}
                   />
                   <span>SEARCH</span>
@@ -332,15 +349,15 @@ const MainLayout = () => {
               >
                 <button
                   className={`transition-all duration-200 font-medium flex items-center py-2 ${location.pathname.includes("/personalized-matrimony") ||
-                      location.pathname.includes("/nri-matrimony") ||
-                      location.pathname.includes("/church-partner") ||
-                      location.pathname.includes("/matrimonial-advisor") ||
-                      location.pathname.includes("/marital-counseling") ||
-                      location.pathname.includes("/bridal-makeup") ||
-                      location.pathname.includes("/insurance-services") ||
-                      location.pathname === "/user/user-service-page"
-                      ? "text-purple-600 font-bold border-b-2 border-purple-600"
-                      : "text-gray-800 hover:text-purple-600"
+                    location.pathname.includes("/nri-matrimony") ||
+                    location.pathname.includes("/church-partner") ||
+                    location.pathname.includes("/matrimonial-advisor") ||
+                    location.pathname.includes("/marital-counseling") ||
+                    location.pathname.includes("/bridal-makeup") ||
+                    location.pathname.includes("/insurance-services") ||
+                    location.pathname === "/user/user-service-page"
+                    ? "text-purple-600 font-bold border-b-2 border-purple-600"
+                    : "text-gray-800 hover:text-purple-600"
                     }`}
                 >
                   SERVICES <ChevronDown className="w-4 h-4 ml-1" />
@@ -354,8 +371,8 @@ const MainLayout = () => {
               <button
                 onClick={() => handleNavigate("/user/events-page")}
                 className={`transition-all duration-200 font-medium py-2 ${location.pathname === "/user/events-page"
-                    ? "text-purple-600 font-bold border-b-2 border-purple-600"
-                    : "text-gray-800 hover:text-purple-600"
+                  ? "text-purple-600 font-bold border-b-2 border-purple-600"
+                  : "text-gray-800 hover:text-purple-600"
                   }`}
               >
                 EVENTS
@@ -364,8 +381,8 @@ const MainLayout = () => {
               <button
                 onClick={() => handleNavigate("/user/user-plan-selection")}
                 className={`transition-all duration-200 font-medium py-2 ${location.pathname === "/user/user-plan-selection"
-                    ? "text-purple-600 font-bold border-b-2 border-purple-600"
-                    : "text-gray-800 hover:text-purple-600"
+                  ? "text-purple-600 font-bold border-b-2 border-purple-600"
+                  : "text-gray-800 hover:text-purple-600"
                   }`}
               >
                 PLANS
@@ -378,9 +395,9 @@ const MainLayout = () => {
               >
                 <button
                   className={`transition-all duration-200 font-medium flex items-center py-2 ${location.pathname === "/help-support" ||
-                      location.pathname === "/report-issue"
-                      ? "text-purple-600 font-bold border-b-2 border-purple-600"
-                      : "text-gray-800 hover:text-purple-600"
+                    location.pathname === "/report-issue"
+                    ? "text-purple-600 font-bold border-b-2 border-purple-600"
+                    : "text-gray-800 hover:text-purple-600"
                     }`}
                 >
                   HELP & SUPPORT <ChevronDown className="w-4 h-4 ml-1" />
@@ -433,7 +450,7 @@ const MainLayout = () => {
                     REGISTER
                   </button>
                   <button
-                    onClick={() => handleNavigate("/user/user-login")}
+                    onClick={openLoginPopup}
                     className="bg-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors"
                   >
                     LOGIN
@@ -465,8 +482,8 @@ const MainLayout = () => {
                     setIsMobileMenuOpen(false);
                   }}
                   className={`text-left font-medium p-3 rounded-md transition-colors ${location.pathname === "/about-us"
-                      ? "text-purple-600 bg-purple-50"
-                      : "text-gray-800 hover:text-purple-600 hover:bg-gray-50"
+                    ? "text-purple-600 bg-purple-50"
+                    : "text-gray-800 hover:text-purple-600 hover:bg-gray-50"
                     }`}
                 >
                   ABOUT US
@@ -479,8 +496,8 @@ const MainLayout = () => {
                       setIsMobileMenuOpen(false);
                     }}
                     className={`text-left font-medium p-3 rounded-md transition-colors ${location.pathname === "/user/find-matches"
-                        ? "text-purple-600 bg-purple-50"
-                        : "text-gray-800 hover:text-purple-600 hover:bg-gray-50"
+                      ? "text-purple-600 bg-purple-50"
+                      : "text-gray-800 hover:text-purple-600 hover:bg-gray-50"
                       }`}
                   >
                     SEARCH
@@ -522,8 +539,8 @@ const MainLayout = () => {
                     setIsMobileMenuOpen(false);
                   }}
                   className={`text-left font-medium p-3 rounded-md transition-colors ${location.pathname === "/user/events-page"
-                      ? "text-purple-600 bg-purple-50"
-                      : "text-gray-800 hover:text-purple-600 hover:bg-gray-50"
+                    ? "text-purple-600 bg-purple-50"
+                    : "text-gray-800 hover:text-purple-600 hover:bg-gray-50"
                     }`}
                 >
                   EVENTS
@@ -535,8 +552,8 @@ const MainLayout = () => {
                     setIsMobileMenuOpen(false);
                   }}
                   className={`text-left font-medium p-3 rounded-md transition-colors ${location.pathname === "/user/user-plan-selection"
-                      ? "text-purple-600 bg-purple-50"
-                      : "text-gray-800 hover:text-purple-600 hover:bg-gray-50"
+                    ? "text-purple-600 bg-purple-50"
+                    : "text-gray-800 hover:text-purple-600 hover:bg-gray-50"
                     }`}
                 >
                   PLANS
@@ -666,8 +683,8 @@ const MainLayout = () => {
                       REGISTER
                     </button>
                     <button
-                      onClick={() => {
-                        handleNavigate("/user/user-login");
+                      onClick={(e) => {
+                        openLoginPopup(e);
                         setIsMobileMenuOpen(false);
                       }}
                       className="w-full bg-purple-600 text-white py-2.5 rounded-lg font-medium hover:bg-purple-700 transition-colors shadow-sm"
@@ -681,6 +698,11 @@ const MainLayout = () => {
           )}
         </div>
       </header>
+
+      {/* LOGIN POPUP */}
+      <SidebarLoginComponent closePopup={closePopup} />
+      {/* END LOGIN POPUP */}
+
     </>
   );
 };

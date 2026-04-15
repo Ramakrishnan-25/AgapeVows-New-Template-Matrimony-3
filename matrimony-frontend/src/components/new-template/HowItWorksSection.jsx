@@ -15,7 +15,7 @@ export default function HowItWorksSection() {
           paddingBottom: '40px',
         }}
       >
-        <div className="container">
+        <div className="container" style={{ maxWidth: '1350px' }}>
           <div className="row">
 
             {/* TITLE */}
@@ -23,16 +23,16 @@ export default function HowItWorksSection() {
               <p style={{ color: '#000' }}>Moments</p>
 
               <h2
-  style={{
-    fontSize: '50px',
-    fontFamily: '"Playfair Display", serif',
-    fontWeight: 'bold',
-  }}
->
-  <span style={{ color: '#7c3aed' }}>
-    How it works
-  </span>
-</h2>
+                style={{
+                  fontSize: '50px',
+                  fontFamily: '"Playfair Display", serif',
+                  fontWeight: 'bold',
+                }}
+              >
+                <span style={{ color: '#7c3aed' }}>
+                  How it works
+                </span>
+              </h2>
               <span className="leaf1" />
               <span className="tit-ani-" />
             </div>

@@ -46,11 +46,11 @@ export default function TrustBrandsSection() {
         className="hom-cus-revi"
         style={{
           padding: '0px 0 60px 0',  // 🔥 top padding removed
-          marginTop: '-50px',       // 🔥 extra gap remove
+          marginTop: '10px',      
           background: 'var(--bg, #fdfcfb)'
         }}
       >
-        <div className="container">
+       <div className="container" style={{ maxWidth: '1350px' }}>
           <div className="row">
             <div className="home-tit" style={{ textAlign: 'center', marginBottom: '50px' }}>
               <p style={{ color: '#000000ff', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '500', fontSize: '20px', marginBottom: '10px' }}>Trusted Brand</p>

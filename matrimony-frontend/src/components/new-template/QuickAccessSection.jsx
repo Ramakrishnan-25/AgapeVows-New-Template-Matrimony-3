@@ -66,7 +66,7 @@ export default function QuickAccessSection() {
           overflow: 'hidden'
         }}
       >
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             {/* BACKGROUND SHAPE */}
             <div className="wedd-shap">

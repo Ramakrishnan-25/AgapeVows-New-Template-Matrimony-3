@@ -7,58 +7,33 @@ import iconClose from '../../assets/new-template/images/icon/close.svg';
 import couple1 from '../../assets/new-template/images/couples/1.jpg';
 import couple3 from '../../assets/new-template/images/couples/3.jpg';
 import couple4 from '../../assets/new-template/images/couples/4.jpg';
+import SidebarLoginComponent from './SidebarLoginComponent';
 
 export default function MainMenu() {
+  const openLoginPopup = (e) => {
+    e.preventDefault();
+    const menuPop = document.querySelector('.menu-pop1');
+    const popBg = document.querySelector('.pop-bg');
+    if (menuPop) menuPop.classList.add('act');
+    if (popBg) popBg.classList.add('act');
+    document.querySelectorAll('.mob-me-all').forEach((el) => el.classList.remove('act'));
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closePopup = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    document.querySelectorAll('.menu-pop, .pop-bg, .mob-me-all').forEach((el) => el.classList.remove('act'));
+    document.body.style.overflow = 'visible';
+  };
+
   return (
     <>
       {/* MENU POPUP */}
-      <div className="menu-pop menu-pop1">
-        <span className="menu-pop-clo">
-          <i className="fa fa-times" aria-hidden="true" />
-        </span>
-        <div className="inn">
-          <div className="login-pop-header">
-            <h3>Login to <span>AgapeVows</span></h3>
-            <p>Enter your credentials to access your profile.</p>
-          </div>
-          
-          <form className="login-pop-form">
-            <div className="form-group mb-4">
-              <label className="mb-2">Email or Phone</label>
-              <input type="text" className="form-control" placeholder="Enter email address" required />
-            </div>
-            <div className="form-group mb-4">
-              <label className="mb-2">Password</label>
-              <input type="password" className="form-control" placeholder="Enter password" required />
-            </div>
-            <div className="d-flex justify-content-between mb-4">
-              <div className="form-check">
-                <input type="checkbox" className="form-check-input" id="rememberMe" />
-                <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
-              </div>
-              <a href="#!" className="text-secondary small">Forgot Password?</a>
-            </div>
-            <button type="submit" className="login-btn-sidebar w-100 mb-4">Login Now</button>
-            
-            <div className="social-login-pop text-center">
-              <p className="small text-muted mb-3">Or Login with</p>
-              <div className="d-flex justify-content-center gap-3">
-                <a href="#!" className="btn btn-outline-secondary btn-sm rounded-pill px-3"><i className="fa fa-facebook me-2"></i> Facebook</a>
-                <a href="#!" className="btn btn-outline-secondary btn-sm rounded-pill px-3"><i className="fa fa-google me-2"></i> Google</a>
-              </div>
-            </div>
-          </form>
-
-          <div className="login-pop-footer text-center mt-5">
-            <p className="small">Don't have an account?</p>
-            <a href="/user/user-sign-up" className="btn btn-primary font-weight-bold">Register for Free</a>
-          </div>
-        </div>
-      </div>
+      <SidebarLoginComponent closePopup={closePopup} />
       {/* END */}
       {/* CONTACT EXPERT */}
       <div className="menu-pop menu-pop2">
-        <span className="menu-pop-clo">
+        <span className="menu-pop-clo" onClick={closePopup} style={{ cursor: 'pointer' }}>
           <i className="fa fa-times" aria-hidden="true" />
         </span>
         <div className="inn">
@@ -257,7 +232,7 @@ export default function MainMenu() {
                                   <a href="plans.html">Pricing plans</a>
                                 </li>
                                 <li>
-                                  <a href="/user/user-login">Login</a>
+                                  <a href="#!" onClick={openLoginPopup}>Login</a>
                                 </li>
                                 <li>
                                   <a href="/user/user-sign-up">Sign-up</a>
@@ -344,7 +319,7 @@ export default function MainMenu() {
                                   </a>
                                 </li>
                                 <li>
-                                  <a href="/user/user-login">Sign in</a>
+                                  <a href="#!" onClick={openLoginPopup}>Sign in</a>
                                 </li>
                               </ul>
                             </div>
@@ -385,7 +360,7 @@ export default function MainMenu() {
                           <a href="photo-gallery-1.html">Photo gallery 1</a>
                         </li>
                         <li>
-                          <a href="/user/user-login">Login</a>
+                          <a href="#!" onClick={openLoginPopup}>Login</a>
                         </li>
                         <li>
                           <a href="/user/user-sign-up">Sign-up</a>
@@ -400,7 +375,7 @@ export default function MainMenu() {
                     <a href="plans.html">Plans</a>
                   </li>
                   <li>
-                    <a href="#!" className="desk-menu">Login</a>
+                    <a href="#!" className="desk-menu" onClick={openLoginPopup}>Login</a>
                   </li>
                   <li>
                     <a href="/user/user-sign-up">Register</a>
@@ -431,7 +406,7 @@ export default function MainMenu() {
                           <a href="user-profile-edit.html">Edit full profile</a>
                         </li>
                         <li>
-                          <a href="/user/user-login">Sign in</a>
+                          <a href="#!" onClick={openLoginPopup}>Sign in</a>
                         </li>
                       </ul>
                     </div>
@@ -470,7 +445,7 @@ export default function MainMenu() {
       {/* END */}
       {/* EXPLORE MENU POPUP */}
       <div className="mob-me-all mobile_menu">
-        <div className="mob-me-clo">
+        <div className="mob-me-clo" onClick={closePopup} style={{ cursor: 'pointer' }}>
           <img src={iconClose} alt="" />
         </div>
         <div className="mv-bus">
@@ -514,7 +489,7 @@ export default function MainMenu() {
               <a href="plans.html">Pricing plans</a>
             </li>
             <li>
-              <a href="/user/user-login">Login</a>
+              <a href="#!" onClick={openLoginPopup}>Login</a>
             </li>
             <li>
               <a href="/user/user-sign-up">Sign-up</a>
@@ -649,7 +624,7 @@ export default function MainMenu() {
       {/* END MOBILE MENU POPUP */}
       {/* MOBILE USER PROFILE MENU POPUP */}
       <div className="mob-me-all dashbord_menu">
-        <div className="mob-me-clo">
+        <div className="mob-me-clo" onClick={closePopup} style={{ cursor: 'pointer' }}>
           <img src={iconClose} alt="" />
         </div>
         <div className="mv-bus">
@@ -661,7 +636,7 @@ export default function MainMenu() {
           </div>
           <ul>
             <li>
-              <a href="/user/user-login">Login</a>
+              <a href="#!" onClick={openLoginPopup}>Login</a>
             </li>
             <li>
               <a href="/user/user-sign-up">Sign-up</a>

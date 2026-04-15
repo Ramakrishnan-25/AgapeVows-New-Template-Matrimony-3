@@ -97,8 +97,24 @@ import social5 from '../../assets/new-template/images/social/5.png';
 
 // Import about images
 import about1 from '../../assets/new-template/images/about/1.jpg';
+import SidebarLoginComponent from './SidebarLoginComponent';
 
 export default function Index() {
+  const openLoginPopup = (e) => {
+    e.preventDefault();
+    const menuPop = document.querySelector('.menu-pop1');
+    const popBg = document.querySelector('.pop-bg');
+    if (menuPop) menuPop.classList.add('act');
+    if (popBg) popBg.classList.add('act');
+    document.querySelectorAll('.mob-me-all').forEach((el) => el.classList.remove('act'));
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closePopup = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    document.querySelectorAll('.menu-pop, .pop-bg, .mob-me-all').forEach((el) => el.classList.remove('act'));
+    document.body.style.overflow = 'visible';
+  };
   return (
     <>
       {/* PRELOADER */}
@@ -192,97 +208,7 @@ export default function Index() {
   </div>
   {/* END */}
   {/* MENU POPUP */}
-  <div className="menu-pop menu-pop1">
-    <span className="menu-pop-clo">
-      <i className="fa fa-times" aria-hidden="true" />
-    </span>
-    <div className="inn">
-      <img
-        src={logoBImg}
-        alt=""
-        loading="lazy"
-        className="logo-brand-only"
-      />
-      <p>
-        <strong>Best Wedding Matrimony</strong> lacinia viverra lectus. Fusce
-        imperdiet ullamcorper metus eu fringilla.Lorem Ipsum is simply dummy
-        text of the printing and typesetting industry.
-      </p>
-      <ul className="menu-pop-info">
-        <li>
-          <a href="#!">
-            <i className="fa fa-phone" aria-hidden="true" />
-            +92 (8800) 68 - 8960
-          </a>
-        </li>
-        <li>
-          <a href="#!">
-            <i className="fa fa-whatsapp" aria-hidden="true" />
-            +92 (8800) 68 - 8960
-          </a>
-        </li>
-        <li>
-          <a href="#!">
-            <i className="fa fa-envelope-o" aria-hidden="true" />
-            help@company.com
-          </a>
-        </li>
-        <li>
-          <a href="#!">
-            <i className="fa fa-map-marker" aria-hidden="true" />
-            3812 Lena Lane City Jackson Mississippi
-          </a>
-        </li>
-      </ul>
-      <div className="menu-pop-help">
-        <h4>Support Team</h4>
-        <div className="user-pro">
-          <img src={profile1} alt="" loading="lazy" />
-        </div>
-        <div className="user-bio">
-          <h5>Ashley emyy</h5>
-          <span>Senior personal advisor</span>
-          <a href="enquiry.html" className="btn btn-primary btn-sm">
-            Ask your doubts
-          </a>
-        </div>
-      </div>
-      <div className="menu-pop-soci">
-        <ul>
-          <li>
-            <a href="#!">
-              <i className="fa fa-facebook" aria-hidden="true" />
-            </a>
-          </li>
-          <li>
-            <a href="#!">
-              <i className="fa fa-twitter" aria-hidden="true" />
-            </a>
-          </li>
-          <li>
-            <a href="#!">
-              <i className="fa fa-whatsapp" aria-hidden="true" />
-            </a>
-          </li>
-          <li>
-            <a href="#!">
-              <i className="fa fa-linkedin" aria-hidden="true" />
-            </a>
-          </li>
-          <li>
-            <a href="#!">
-              <i className="fa fa-youtube-play" aria-hidden="true" />
-            </a>
-          </li>
-          <li>
-            <a href="#!">
-              <i className="fa fa-instagram" aria-hidden="true" />
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <SidebarLoginComponent closePopup={closePopup} />
   {/* END */}
   {/* CONTACT EXPERT */}
   <div className="menu-pop menu-pop2">
@@ -492,7 +418,7 @@ export default function Index() {
                               <a href="plans.html">Pricing plans</a>
                             </li>
                             <li>
-                              <a href="/user/user-login">Login</a>
+                              <a href="#!" onClick={openLoginPopup}>Login</a>
                             </li>
                             <li>
                               <a href="/user/user-sign-up">Sign-up</a>
@@ -579,7 +505,7 @@ export default function Index() {
                               </a>
                             </li>
                             <li>
-                              <a href="/user/user-login">Sign in</a>
+                              <a href="#!" onClick={openLoginPopup}>Sign in</a>
                             </li>
                           </ul>
                         </div>
@@ -620,7 +546,7 @@ export default function Index() {
                       <a href="photo-gallery-1.html">Photo gallery 1</a>
                     </li>
                     <li>
-                      <a href="/user/user-login">Login</a>
+                      <a href="#!" onClick={openLoginPopup}>Login</a>
                     </li>
                     <li>
                       <a href="/user/user-sign-up">Sign-up</a>
@@ -663,7 +589,7 @@ export default function Index() {
                       <a href="user-profile-edit.html">Edit full profile</a>
                     </li>
                     <li>
-                      <a href="/user/user-login">Sign in</a>
+                      <a href="#!" onClick={openLoginPopup}>Sign in</a>
                     </li>
                   </ul>
                 </div>
@@ -746,7 +672,7 @@ export default function Index() {
           <a href="plans.html">Pricing plans</a>
         </li>
         <li>
-          <a href="/user/user-login">Login</a>
+          <a href="#!" onClick={openLoginPopup}>Login</a>
         </li>
         <li>
           <a href="/user/user-sign-up">Sign-up</a>
@@ -893,7 +819,7 @@ export default function Index() {
       </div>
       <ul>
         <li>
-          <a href="/user/user-login">Login</a>
+          <a href="#!" onClick={openLoginPopup}>Login</a>
         </li>
         <li>
           <a href="/user/user-sign-up">Sign-up</a>

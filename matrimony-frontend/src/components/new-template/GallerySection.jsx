@@ -13,7 +13,7 @@ export default function GallerySection() {
   return (
     <section>
       <div className="wedd-gall home-wedd-gall">
-        <div className="container">
+        <div className="container-fluid">
           <div className="gall-inn">
             <div className="home-tit">
 

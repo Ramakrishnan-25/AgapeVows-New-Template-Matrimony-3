@@ -17,7 +17,9 @@ export default function FooterSection() {
       <footer className="agape-vows-footer bg-purple-600" style={{
         color: '#fff',
         padding: '30px 0 20px',
-        marginTop: '20px', /* This separates it from the section above */
+        marginTop: '0px',        // 🔥 changed
+        paddingTop: '450px',     // 🔥 added
+
         fontFamily: "'Poppins', sans-serif"
       }}>
         <style>{`
