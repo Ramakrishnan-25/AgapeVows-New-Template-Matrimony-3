@@ -2,6 +2,7 @@ import React from "react";
 // Import New Template CSS (only the ones not already in main.jsx)
 import "../../../assets/new-template/css/jquery-ui.css";
 import "../../../assets/new-template/css/style.css";
+import "../../new-template/HomeMobileResponsive.css";
 
 import MainLayout from "../layout/MainLayout";
 import CountModal from "../../CountModal";

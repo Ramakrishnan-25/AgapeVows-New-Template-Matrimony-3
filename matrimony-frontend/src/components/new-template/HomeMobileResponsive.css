@@ -1,0 +1,239 @@
+/* ===================================================
+   AGAPEVOWS – GLOBAL MOBILE RESPONSIVE OVERRIDES
+   Applies to all homepage sections below 768px
+   =================================================== */
+
+/* ---- General section headings ---- */
+@media (max-width: 768px) {
+  .home-tit h2,
+  .home-tit h2 span {
+    font-size: 28px !important;
+    line-height: 1.3 !important;
+  }
+  .home-tit p {
+    font-size: 14px !important;
+  }
+}
+
+/* ---- AboutWelcome Section ---- */
+@media (max-width: 768px) {
+  .ab-wel .ab-wel-lhs {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .ab-wel-1, .ab-wel-2 {
+    max-width: 100% !important;
+    width: 100% !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    display: block !important;
+    margin: 0 auto 15px auto !important;
+    border-radius: 12px !important;
+  }
+  .ab-wel-3, .ab-wel-4 {
+    display: none !important;
+  }
+  .ab-wel-rhs {
+    text-align: center !important;
+  }
+  .ab-wel-tit-2 ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ---- WhyChooseUs / Banner Section ---- */
+@media (max-width: 768px) {
+  .ban-inn.ban-home {
+    padding: 40px 16px !important;
+    text-align: center !important;
+  }
+  .ban-tit h2 {
+    font-size: 28px !important;
+  }
+  .ban-tit p {
+    font-size: 15px !important;
+  }
+}
+
+/* ---- FeaturesSection (ab-sec2) ---- */
+@media (max-width: 768px) {
+  .ab-sec2 .row ul {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    padding: 0 16px !important;
+  }
+  .ab-sec2 .row ul li {
+    width: 100% !important;
+    max-width: 340px !important;
+    text-align: center !important;
+  }
+}
+
+/* ---- CountModal Section ---- */
+@media (max-width: 768px) {
+  .bg-purple-50\/80 {
+    border-radius: 20px !important;
+    padding: 20px 16px !important;
+  }
+}
+
+/* ---- HowItWorks / Timeline Section ---- */
+@media (max-width: 768px) {
+  .wedd-tline .inn ul {
+    padding: 0 16px !important;
+  }
+  .tline-inn {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 16px !important;
+  }
+  .tline-inn.tline-inn-reve {
+    flex-direction: column !important;
+  }
+  .tline-im {
+    margin: 0 auto !important;
+  }
+}
+
+/* ---- TeamSection (ab-team) ---- */
+@media (max-width: 768px) {
+  .ab-team .row > ul {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 20px !important;
+    padding: 0 16px 20px 16px !important;
+    scrollbar-width: none !important;
+  }
+  .ab-team .row > ul::-webkit-scrollbar {
+    display: none !important;
+  }
+  .ab-team .row > ul > li {
+    min-width: 220px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+  }
+  .ab-team .row > ul > li img {
+    width: 100% !important;
+    border-radius: 12px !important;
+  }
+}
+
+/* ---- Gallery Section ---- */
+@media (max-width: 768px) {
+  .wedd-gall.home-wedd-gall .gall-inn > [class*="col-"] {
+    width: 50% !important;
+    padding: 4px !important;
+  }
+  .gal-im {
+    margin-bottom: 8px !important;
+  }
+  .gal-im img {
+    width: 100% !important;
+    height: 130px !important;
+    object-fit: cover !important;
+    border-radius: 10px !important;
+  }
+}
+
+/* ---- BlogSection ---- */
+@media (max-width: 768px) {
+  .hom-blog .blog ul {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 16px !important;
+    padding: 0 16px 20px 16px !important;
+    scrollbar-width: none !important;
+  }
+  .hom-blog .blog ul::-webkit-scrollbar {
+    display: none !important;
+  }
+  .hom-blog .blog ul li {
+    min-width: 270px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+  }
+  .blog-box {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+  .blog-box img {
+    width: 100% !important;
+    height: 180px !important;
+    object-fit: cover !important;
+  }
+}
+
+/* ---- FindYourMatchCTA Section ---- */
+@media (max-width: 768px) {
+  .str.count .fot-ban-inn {
+    padding: 30px 16px !important;
+    text-align: center !important;
+  }
+  .str.count .fot-ban-inn .lhs h2 {
+    font-size: 26px !important;
+  }
+  .str.count .fot-ban-inn .lhs p {
+    font-size: 14px !important;
+  }
+  .str.count .fot-ban-inn .cta-3,
+  .str.count .fot-ban-inn .cta-4 {
+    display: block !important;
+    width: 100% !important;
+    margin: 8px 0 !important;
+    text-align: center !important;
+  }
+}
+
+/* ---- Footer Section ---- */
+@media (max-width: 768px) {
+  .agape-vows-footer .container > .row {
+    flex-direction: column !important;
+  }
+  .agape-vows-footer .container > .row > [class*="col-"] {
+    width: 100% !important;
+    margin-bottom: 30px !important;
+  }
+  .agape-vows-footer {
+    text-align: center !important;
+  }
+  .agape-vows-footer .soc-list {
+    justify-content: center !important;
+  }
+  .footer-section-title {
+    font-size: 18px !important;
+  }
+}
+
+/* ---- QuickAccess / Service Swiper – mobile padding ---- */
+@media (max-width: 576px) {
+  .home-acces-main {
+    margin-top: 0 !important;
+    padding: 16px 0 !important;
+  }
+}
+
+/* ---- TrustBrands section – mobile padding ---- */
+@media (max-width: 576px) {
+  .hom-cus-revi {
+    margin-top: 0 !important;
+    padding: 16px 0 30px 0 !important;
+  }
+}
+
+/* ---- Swiper touch drag indicator on mobile ---- */
+@media (max-width: 768px) {
+  .swiper-wrapper {
+    cursor: grab !important;
+  }
+  .swiper-wrapper:active {
+    cursor: grabbing !important;
+  }
+}
