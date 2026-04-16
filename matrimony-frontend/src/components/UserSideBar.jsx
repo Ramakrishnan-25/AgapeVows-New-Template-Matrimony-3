@@ -480,7 +480,7 @@ import profImage from "../assets/images/blue-circle-with-white-user_78370-4707.a
 import { Link } from "react-router-dom";
 import MembershipBadge from "./common/MembershipBadge";
 
-const UserSideBar = ({ sidebarTop = "115px" }) => {
+const UserSideBar = ({ sidebarTop = "40px" }) => {
   const userId = localStorage.getItem("userId");
   const currentPath = window.location.pathname;
 
@@ -538,7 +538,7 @@ const UserSideBar = ({ sidebarTop = "115px" }) => {
     },
 
     profileBox: {
-      padding: "18px",
+      padding: "10px",
       textAlign: "center",
       borderBottom: "1px solid #edf2f7",
     },
@@ -714,7 +714,7 @@ const UserSideBar = ({ sidebarTop = "115px" }) => {
             )}
           </div>
 
-          <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'center' }}>
+          <div style={{ marginTop: '5px', display: 'flex', justifyContent: 'center' }}>
             <MembershipBadge user={userInfo} />
           </div>
 

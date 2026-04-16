@@ -514,7 +514,7 @@ const UserProfilePage = () => {
       </div>
 
       {/* Main Content Area */}
-      <div style={{ paddingTop: "115px", paddingBottom: "40px" }}>
+      <div style={{ paddingTop: "40px", paddingBottom: "40px" }}>
         <div className="db">
           <div
             className="container-fluid"
@@ -561,7 +561,7 @@ const UserProfilePage = () => {
                         className="btn btn-primary edit-btn"
                         style={{
                           padding: "10px 24px",
-                          fontSize: "14px",
+                          fontSize: "24px",
                           borderRadius: "5px",
                           textDecoration: "none",
                         }}

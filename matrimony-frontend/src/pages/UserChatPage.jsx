@@ -278,7 +278,7 @@ const UserChatPage = () => {
         </div>
         <div
           className="d-flex justify-content-center align-items-center"
-          style={{ minHeight: "50vh", paddingTop: "115px" }}
+          style={{ minHeight: "50vh", paddingTop: "90px" }}
         >
           <div>Loading Chats...</div>
         </div>
@@ -292,7 +292,7 @@ const UserChatPage = () => {
         <LayoutComponent />
       </div>
 
-      <div style={{ paddingTop: "115px", paddingBottom: "40px" }}>
+      <div style={{ paddingTop: "40px", paddingBottom: "40px" }}>
         <div className="db">
           <div
             className="container-fluid"

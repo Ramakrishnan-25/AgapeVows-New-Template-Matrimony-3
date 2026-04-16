@@ -381,7 +381,7 @@ const UserDashboardPage = () => {
       </div>
 
       {/* Main Content Area */}
-      <div style={{ paddingTop: "115px", paddingBottom: "40px" }}>
+      <div style={{ paddingTop: "40px", paddingBottom: "40px" }}>
         <div className="db">
           <div
             className="container-fluid"

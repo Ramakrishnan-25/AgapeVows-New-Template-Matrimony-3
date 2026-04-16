@@ -40,25 +40,31 @@
 /* ALL CARDS DEFAULT WHITE */
 .pri-box {
   background-color: #ffffff !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
 }
 
 /* CENTER CARD */
 .pri-box-pop {
   background-color: #ffffff !important;
-
-  border-radius: 40px !important;
-  overflow: hidden !important;
-
+  border-radius: 30px !important;
+  overflow: visible !important;
   
-
-  /* REAL HEIGHT DIFFERENCE */
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-
+  /* HEIGHT DIFFERENCE WITHOUT OVERLAP */
+  padding: 85px 20px !important;
+   position: relative;
   z-index: 2;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  margin-top: 120px; 
+ 
+  
+}
+
+.plans-main {
+  padding-top: 40px; /* gives breathing space above cards */
+}
+
+.pri-box-pop {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 /* Membership Badges */
@@ -161,4 +167,13 @@
     padding-left: 15px;
     padding-right: 15px;
   }
-}
+}
+
+.plans-main .container {
+  max-width: 1400px !important;
+  overflow: visible !important;
+}
+
+.plans-main {
+  overflow: visible !important;
+}
