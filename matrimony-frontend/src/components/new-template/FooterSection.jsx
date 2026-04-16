@@ -14,12 +14,12 @@ import gal6 from '../../assets/new-template/images/gallery/6.jpg';
 export default function FooterSection() {
   return (
     <>
-      <footer className="agape-vows-footer bg-purple-600" style={{
+      <footer className="agape-vows-footer" style={{
+        backgroundColor: '#9333ea',
         color: '#fff',
-        padding: '30px 0 20px',
-        marginTop: '0px',        // 🔥 changed
-        paddingTop: '450px',     // 🔥 added
-
+        paddingTop: '80px',
+        paddingBottom: '20px',
+        marginTop: '0px',
         fontFamily: "'Poppins', sans-serif"
       }}>
         <style>{`
@@ -78,21 +78,38 @@ export default function FooterSection() {
             .agape-vows-footer { text-align: center; }
             .agape-vows-footer .soc-list { justify-content: center; }
           }
+          @media (max-width: 768px) {
+            .agape-vows-footer-inner { flex-direction: column !important; align-items: center !important; }
+            .agape-vows-footer-inner > div { width: 100% !important; max-width: 100% !important; }
+          }
           .footer-copyright p { color: #ffffff !important; margin: 0; }
         `}</style>
 
-        <div className="container">
-          <div className="row">
+        <div style={{
+          width: '100%',
+          maxWidth: '1280px',
+          margin: '0 auto',
+          paddingLeft: '30px',
+          paddingRight: '30px',
+          boxSizing: 'border-box'
+        }}>
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '30px',
+            justifyContent: 'space-between'
+          }}>
 
             {/* 1st Section: Branding */}
-            <div className="col-lg-3 col-md-6 mb-5"
-              style={{
-                background: "#fff",
-                padding: "25px",
-                borderRadius: "12px",
-                color: "#000"
-              }}
-            >
+            <div style={{
+              flex: '1 1 220px',
+              minWidth: '200px',
+              maxWidth: '260px',
+              background: "#fff",
+              padding: "25px",
+              borderRadius: "12px",
+              color: "#000"
+            }}>
               <h2 style={{ fontSize: '32px', fontWeight: 800, marginBottom: '5px', color: '#000' }}>
                 AgapeVows
               </h2>
@@ -126,7 +143,7 @@ export default function FooterSection() {
             </div>
 
             {/* 2nd Section: Quick Links */}
-            <div className="col-lg-3 col-md-6 mb-5 px-lg-4">
+            <div style={{ flex: '1 1 180px', minWidth: '160px' }}>
               <h4 className="footer-section-title">Quick Links</h4>
               <ul>
                 <li><a href="about-us.html">About Us</a></li>
@@ -140,7 +157,7 @@ export default function FooterSection() {
             </div>
 
             {/* 3rd Section: Gallery */}
-            <div className="col-lg-3 col-md-6 mb-5">
+            <div style={{ flex: '1 1 200px', minWidth: '180px' }}>
               <h4 className="footer-section-title">Gallery</h4>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
                 {[gal1, gal2, gal3, gal4, gal5, gal6].map((img, i) => (
@@ -150,7 +167,7 @@ export default function FooterSection() {
             </div>
 
             {/* 4th Section: Feedback */}
-            <div className="col-lg-3 col-md-6 mb-5">
+            <div style={{ flex: '1 1 220px', minWidth: '200px' }}>
               <h4 className="footer-section-title">Feedback / Suggestions</h4>
               <form onSubmit={e => e.preventDefault()}>
                 <input type="text" placeholder="Name" className="footer-input" required />
