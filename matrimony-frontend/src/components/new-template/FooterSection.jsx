@@ -15,179 +15,195 @@ export default function FooterSection() {
   return (
     <>
       <footer className="agape-vows-footer" style={{
-        backgroundColor: '#9333ea',
+        background: 'linear-gradient(135deg, #7b2ff7, #9333ea, #6a11cb)',
         color: '#fff',
-        paddingTop: '80px',
+        paddingTop: '400px',
         paddingBottom: '20px',
-        marginTop: '0px',
         fontFamily: "'Poppins', sans-serif"
       }}>
+
         <style>{`
-          .agape-vows-footer a { color: #fff !important; text-decoration: none; transition: 0.3s; display: block; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-          .agape-vows-footer a:hover { padding-left: 10px; color: #e3e6eeff !important; }
-          .agape-vows-footer ul { padding: 0; list-style: none; }
-          .agape-vows-footer .soc-icon-wrap { 
-            width: 40px; 
-            height: 40px; 
-            background: #fff; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
+          .agape-vows-footer a {
+            color: #fff !important;
+            text-decoration: none;
             transition: 0.3s;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
           }
-          .agape-vows-footer .soc-icon-wrap:hover { transform: translateY(-5px); background: #d4af37; }
-          .agape-vows-footer .soc-icon-wrap img { width: 20px; filter: grayscale(1) contrast(200%); }
-          .footer-section-title { 
-            font-size: 22px; 
-            font-weight: 700; 
-            color: #d4af37; 
-            margin-bottom: 30px; 
-            text-transform: capitalize;
+
+          .agape-vows-footer a:hover {
+            padding-left: 10px;
+            color: #ffd54f !important;
           }
+
+          .agape-vows-footer ul { list-style: none; padding: 0; }
+
+          .footer-section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffd54f;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px rgba(255,213,79,0.6);
+          }
+
           .footer-input {
             width: 100%;
             padding: 12px 15px;
             margin-bottom: 15px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.3);
             background: rgba(255,255,255,0.1);
-            color: #fff !important;
+            color: #fff;
           }
-          .footer-input::placeholder { color: rgba(255,255,255,0.6); }
+
+          .footer-input:focus {
+            border: 1px solid #ffd54f;
+            box-shadow: 0 0 10px rgba(255,213,79,0.5);
+            outline: none;
+          }
+
           .footer-submit {
-            background: #d4af37;
+            background: linear-gradient(45deg, #ffd54f, #ffb300);
             color: #000;
             border: none;
-            padding: 12px 35px;
+            padding: 12px;
             border-radius: 50px;
             font-weight: 700;
             cursor: pointer;
-            transition: 0.3s;
             width: 100%;
           }
-          .footer-submit:hover { background: #fff; transform: scale(1.02); }
+
+          .footer-submit:hover {
+            transform: scale(1.05);
+          }
+
+          .soc-icon-wrap {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .soc-icon-wrap img {
+            width: 20px;
+          }
+
           .gal-grid-item {
-             width: 100%;
-             aspect-ratio: 1;
-             object-fit: cover;
-             border-radius: 10px;
-             border: 2px solid rgba(233, 233, 233, 0.2);
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: 0.3s;
           }
-          @media (max-width: 991px) {
-            .agape-vows-footer { text-align: center; }
-            .agape-vows-footer .soc-list { justify-content: center; }
+
+          .gal-grid-item:hover {
+            transform: scale(1.1);
           }
-          @media (max-width: 768px) {
-            .agape-vows-footer-inner { flex-direction: column !important; align-items: center !important; }
-            .agape-vows-footer-inner > div { width: 100% !important; max-width: 100% !important; }
-          }
-          .footer-copyright p { color: #ffffff !important; margin: 0; }
         `}</style>
 
         <div style={{
-          width: '100%',
           maxWidth: '1280px',
           margin: '0 auto',
-          paddingLeft: '30px',
-          paddingRight: '30px',
-          boxSizing: 'border-box'
+          paddingLeft: '15px',
+          paddingRight: '15px'
         }}>
+
           <div style={{
             display: 'flex',
             flexWrap: 'wrap',
-            gap: '30px',
+            gap: '50px',
             justifyContent: 'space-between'
           }}>
 
-            {/* 1st Section: Branding */}
+            {/* Branding */}
             <div style={{
               flex: '1 1 220px',
               minWidth: '200px',
-              maxWidth: '260px',
-              background: "#fff",
+              background: "rgba(255,255,255,0.15)",
+              backdropFilter: "blur(15px)",
               padding: "25px",
-              borderRadius: "12px",
-              color: "#000"
+              borderRadius: "20px",
+              textAlign: "center",
+              border: "1px solid rgba(255,255,255,0.2)"
             }}>
-              <h2 style={{ fontSize: '32px', fontWeight: 800, marginBottom: '5px', color: '#000' }}>
-                AgapeVows
-              </h2>
+              <h2 style={{ fontSize: '32px', fontWeight: 800 }}>AgapeVows</h2>
 
-              <p style={{ color: '#555', fontWeight: 500, fontSize: '15px', marginBottom: '20px' }}>
-                India's No.1 Christian Matrimony
-              </p>
+              <p>India's No.1 Christian Matrimony</p>
 
               <img
                 src={logoBImg}
                 alt="Logo"
-                style={{ maxWidth: '180px', marginBottom: '25px', filter: 'none' }}
+                style={{
+                  maxWidth: '200px',
+                  margin: '20px 0',
+                  filter: 'brightness(0) invert(1) contrast(200%)'
+                }}
               />
 
-              <p style={{ fontSize: '15px', lineHeight: '1.8', color: '#444' }}>
-                Helping you find your perfect life partner within the Christian community through trust,
-                faith, and verified connections.
+              <p style={{ fontSize: '14px' }}>
+                Helping you find your perfect life partner with trust & faith.
               </p>
 
-              <p style={{ marginTop: '20px', color: '#000' }}>
-                <i className="fa fa-envelope" style={{ color: '#000', marginRight: '10px' }}></i>
-                info@agapevows.com
-              </p>
+              <p style={{ marginTop: '15px' }}>info@agapevows.com</p>
 
-              <div className="d-flex gap-3 mt-4 soc-list">
-                <a href="#" className="soc-icon-wrap"><img src={social1} alt="FB" /></a>
-                <a href="#" className="soc-icon-wrap"><img src={social2} alt="TW" /></a>
-                <a href="#" className="soc-icon-wrap"><img src={social3} alt="IG" /></a>
-                <a href="#" className="soc-icon-wrap"><img src={social5} alt="YT" /></a>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '15px' }}>
+                <a href="#" className="soc-icon-wrap"><img src={social1} /></a>
+                <a href="#" className="soc-icon-wrap"><img src={social2} /></a>
+                <a href="#" className="soc-icon-wrap"><img src={social3} /></a>
+                <a href="#" className="soc-icon-wrap"><img src={social5} /></a>
               </div>
             </div>
 
-            {/* 2nd Section: Quick Links */}
-            <div style={{ flex: '1 1 180px', minWidth: '160px' }}>
+            {/* Quick Links */}
+            <div style={{ flex: '1 1 220px', minWidth: '200px' }}>
               <h4 className="footer-section-title">Quick Links</h4>
               <ul>
-                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="#">About Us</a></li>
                 <li><a href="#">FAQs</a></li>
                 <li><a href="#">Events</a></li>
                 <li><a href="#">Churches</a></li>
                 <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Refund Policy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Refund</a></li>
               </ul>
             </div>
 
-            {/* 3rd Section: Gallery */}
-            <div style={{ flex: '1 1 200px', minWidth: '180px' }}>
+            {/* Gallery */}
+            <div style={{ flex: '1 1 220px', minWidth: '200px' }}>
               <h4 className="footer-section-title">Gallery</h4>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '12px' }}>
                 {[gal1, gal2, gal3, gal4, gal5, gal6].map((img, i) => (
-                  <img key={i} src={img} className="gal-grid-item" alt="gallery" />
+                  <img key={i} src={img} className="gal-grid-item" alt="" />
                 ))}
               </div>
             </div>
 
-            {/* 4th Section: Feedback */}
+            {/* Feedback */}
             <div style={{ flex: '1 1 220px', minWidth: '200px' }}>
-              <h4 className="footer-section-title">Feedback / Suggestions</h4>
-              <form onSubmit={e => e.preventDefault()}>
-                <input type="text" placeholder="Name" className="footer-input" required />
-                <input type="email" placeholder="Email ID" className="footer-input" required />
-                <textarea placeholder="Feedback | Suggestions" rows="4" className="footer-input" style={{ resize: 'none' }} required></textarea>
-                <button type="submit" className="footer-submit">Submit Feedback</button>
+              <h4 className="footer-section-title">Feedback</h4>
+              <form>
+                <input type="text" placeholder="Name" className="footer-input" />
+                <input type="email" placeholder="Email" className="footer-input" />
+                <textarea rows="4" placeholder="Message" className="footer-input"></textarea>
+                <button className="footer-submit">Submit</button>
               </form>
             </div>
+
           </div>
 
           {/* COPYRIGHT */}
-          <div className="footer-copyright" style={{
-            borderTop: '1px solid rgba(250, 255, 254, 0.1)',
+          <div style={{
+            borderTop: '1px solid rgba(255,255,255,0.3)',
             marginTop: '60px',
-            paddingTop: '30px',
+            paddingTop: '20px',
             textAlign: 'center',
-            fontSize: '14px',
-            color: '#fff'
+            fontSize: '14px'
           }}>
-            <p>© 2024 AgapeVows Christian Matrimony. All rights reserved.</p>
+            © 2024 AgapeVows Christian Matrimony. All rights reserved.
           </div>
 
         </div>
