@@ -34,7 +34,7 @@ export default function FooterSection() {
 
           .agape-vows-footer a:hover {
             padding-left: 10px;
-            color: #ffd54f !important;
+            color: #d4af37 !important;
           }
 
           .agape-vows-footer ul { list-style: none; padding: 0; }
@@ -42,7 +42,7 @@ export default function FooterSection() {
           .footer-section-title {
             font-size: 22px;
             font-weight: 700;
-            color: #ffd54f;
+            color: #d4af37;
             margin-bottom: 25px;
             text-shadow: 0 0 10px rgba(255,213,79,0.6);
           }
@@ -58,13 +58,13 @@ export default function FooterSection() {
           }
 
           .footer-input:focus {
-            border: 1px solid #ffd54f;
+            border: 1px solid #d4af37;
             box-shadow: 0 0 10px rgba(255,213,79,0.5);
             outline: none;
           }
 
           .footer-submit {
-            background: linear-gradient(45deg, #ffd54f, #ffb300);
+            background: linear-gradient(45deg, #d4af37, #d4af37);
             color: #000;
             border: none;
             padding: 12px;
