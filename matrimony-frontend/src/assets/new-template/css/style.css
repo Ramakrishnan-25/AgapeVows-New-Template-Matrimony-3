@@ -2380,22 +2380,9 @@ table td {}
     padding-top: 30px;
 }
 
-.hom-cus-revi:before,
-.pg-wedd-vid:before {
-    content: '';
-    position: absolute;
-    background: url('../images/grass.png') no-repeat;
-    width: 100%;
-    height: 50px;
-    bottom: -50px;
-    left: 0;
-    right: 0;
-    background-size: contain;
-}
-
-.hom-cus-revi:before {
-    top: 0;
-    bottom: initial;
+.hom-cus-revi,
+.pg-wedd-vid {
+    position: relative;
 }
 
 .home-acces {
@@ -3001,17 +2988,8 @@ table td {}
     margin-top: 0;
 }
 
-.wed-hom-footer:before {
-    content: '';
-    position: absolute;
-    background: url(../images/grass.png) no-repeat;
-    width: 100%;
-    height: 50px;
-    top: -50px;
-    left: 0;
-    right: 0;
-    background-size: contain;
-    transform: rotate(180deg);
+.wed-hom-footer {
+    position: relative;
 }
 
 .foot-supp {
@@ -9179,8 +9157,6 @@ span.mail::before {
     padding: 80px 0 50px 0;
     height: 100vh;
     position: relative;
-    background: url(../images/grass.png) no-repeat;
-    background-position: center top;
     margin-top: 0;
 }
 
@@ -10601,7 +10577,7 @@ select {
 /*-------------------------------------------------------*/
 @media screen and (max-width:1250px) {
     .hom-ban-sli {
-        display: none;
+        display: block;
     }
 
     .ab-team {
@@ -14522,4 +14498,59 @@ select {
 .temp-ab-wel-tit-2 ul li div h4 {
     color: #7c3aed;
     /* Re-applying the theme color */
-}
+}
+
+/* ================= RESPONSIVE HOME TITLES ================= */
+.home-tit h2 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.home-tit p {
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+    .home-tit {
+        padding-top: 40px !important;
+        margin-bottom: 25px !important;
+    }
+    
+    .home-tit h2 {
+        font-size: 28px !important;
+        line-height: 34px !important;
+    }
+    
+    .home-tit p {
+        font-size: 13px !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 5px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-tit h2 {
+        font-size: 24px !important;
+        line-height: 30px !important;
+    }
+}
+
+/* ================= WELCOME SECTION ALIGNMENT ================= */
+@media (min-width: 992px) {
+    .temp-ab-wel .row {
+        display: flex !important;
+        align-items: flex-start !important;
+    }
+    .temp-ab-wel-lhs {
+        margin-top: -300px !important; /* Pull up to align with large headline */
+        padding-top: 0 !important;
+        padding-right: 25px !important; /* Symmetrical with RHS padding */
+    }
+    .temp-ab-wel-rhs {
+        padding-top: 0 !important;
+        padding-left: 25px !important;
+    }
+}
+

@@ -110,101 +110,197 @@ export default function SidebarLoginComponent({ closePopup }) {
   return (
     <>
       <div className="pop-bg" onClick={closePopup}></div>
-      <div className="menu-pop menu-pop1 large-login-drawer" style={{
+      <div className="menu-pop menu-pop1 large-login-drawer login-mobile-fix" style={{
         height: 'auto',
         minHeight: 'auto',
         top: '50%',
-        left: '-100vw', // Initial state
+        left: '50%',
         transform: 'translate(-50%, -50%)',
         borderRadius: '15px',
         overflow: 'hidden',
         boxShadow: '0 10px 50px rgba(0,0,0,0.2)',
         background: '#fff',
-        width: '90%',
-        transition: 'all 0.5s ease-in-out'
+        transition: 'all 0.5s ease-in-out',
+        zIndex: 10001
       }}>
+        <style>{`
+          .login-mobile-fix {
+            width: 90%;
+            max-width: 950px;
+          }
+          
+          .login-flex-row {
+            display: flex;
+            flex-direction: row;
+            min-height: 580px;
+          }
+
+          .login-left-side {
+            width: 42%;
+            background: #c9a227;
+            padding: 60px 45px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden;
+          }
+
+          .login-right-side {
+            width: 58%;
+            padding: 60px 70px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          /* Premium Close Button */
+          .custom-close-btn {
+            cursor: pointer;
+            z-index: 1000;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: #fff;
+            background: #e91e63;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          }
+
+          .custom-close-btn:hover {
+            transform: scale(1.1) rotate(90deg);
+            background: #c2185b;
+            box-shadow: 0 6px 15px rgba(233, 30, 99, 0.5);
+          }
+
+          .custom-close-btn:active {
+            transform: scale(0.9);
+          }
+
+          /* Movement Animation for People/Branding Content */
+          .celebration-movement {
+            animation: sway 4s ease-in-out infinite;
+          }
+
+          @keyframes sway {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+          }
+
+          .moving-people-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 180px;
+            background-image: url(${loginBg});
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            z-index: 1;
+            animation: jump 3s ease-in-out infinite;
+          }
+
+          @keyframes jump {
+            0%, 100% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.05) translateY(-5px); }
+          }
+
+          @media (max-width: 991px) {
+            .login-mobile-fix {
+               width: 92% !important;
+               max-height: 85vh !important;
+               overflow-y: auto !important;
+               top: 55% !important; /* Move it down slightly from top */
+               margin: 20px 0 !important;
+            }
+            .login-flex-row {
+              flex-direction: column;
+              min-height: auto;
+            }
+            .login-left-side {
+              width: 100%;
+              padding: 30px 20px;
+              height: 280px; /* Increased height as requested */
+            }
+            .login-right-side {
+              width: 100%;
+              padding: 30px 20px;
+            }
+            .login-left-side h1 {
+              font-size: 28px !important;
+              margin-bottom: 10px !important;
+            }
+            .login-left-side h2 {
+              font-size: 18px !important;
+            }
+            .moving-people-bg {
+               height: 160px;
+            }
+            .custom-close-btn {
+              right: 15px;
+              top: 15px;
+              width: 35px;
+              height: 35px;
+              font-size: 20px;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .login-left-side {
+              height: 250px;
+              padding: 20px 15px;
+            }
+            .login-left-side h1 {
+              font-size: 24px !important;
+            }
+            .login-right-side {
+              padding: 25px 15px;
+            }
+          }
+        `}</style>
+
         <span
-          className="menu-pop-clo"
+          className="custom-close-btn"
           onClick={closePopup}
-          style={{
-            cursor: 'pointer',
-            zIndex: 100,
-            position: 'absolute',
-            right: '25px',
-            top: '20px',
-            color: '#aaa',
-            fontSize: '32px',
-            fontWeight: '300',
-            transition: 'all 0.3s ease',
-            padding: '5px 10px',
-            borderRadius: '50%'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.color = '#d4af37'; // gold
-            e.target.style.transform = 'rotate(90deg) scale(1.2)';
-            e.target.style.background = 'rgba(255,255,255,0.1)';
-            e.target.style.boxShadow = '0 0 10px rgba(212,175,55,0.6)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.color = '#aaa';
-            e.target.style.transform = 'rotate(0deg) scale(1)';
-            e.target.style.background = 'transparent';
-            e.target.style.boxShadow = 'none';
-          }}
+          title="Close"
         >
           &times;
         </span>
 
-        <div style={{ display: 'flex', flexDirection: 'row', minHeight: '580px' }}>
+        <div className="login-flex-row">
 
-          {/* Left Side: Branding */}
-          <div style={{
-            width: '42%',
-            background: '#c9a227',
-            padding: '60px 45px',
-            position: 'relative',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-start'
-          }}>
-            <div style={{ zIndex: 2 }}>
+          {/* Left Side: Branding with Celebration Movement */}
+          <div className="login-left-side">
+            <div className="celebration-movement" style={{ zIndex: 2 }}>
               <h2 style={{ fontSize: '38px', fontWeight: '400', color: '#9333ea', lineHeight: '1', margin: '0 0 10px 0' }}>Now</h2>
               <h1 style={{ fontSize: '72px', fontWeight: '800', color: '#fff', lineHeight: '0.9', margin: '0 0 20px 0' }}>Find your life partner</h1>
               <h2 style={{ fontSize: '48px', fontWeight: '700', color: '#9333ea', lineHeight: '1', margin: 0 }}>Easy and fast.</h2>
             </div>
 
-            <div style={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              width: '100%',
-              height: '130px',
-              backgroundImage: `url(${loginBg})`,
-              backgroundSize: '100% auto',
-              backgroundPosition: 'bottom center',
-              backgroundRepeat: 'no-repeat',
-              zIndex: 1
-            }}></div>
+            <div className="moving-people-bg"></div>
           </div>
 
           {/* Right Side: Form */}
-          <div style={{
-            width: '58%',
-            padding: '60px 70px',
-            background: '#fff',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center'
-          }}>
-            <div style={{ marginBottom: '40px' }}>
+          <div className="login-right-side">
+            <div style={{ marginBottom: '30px' }}>
               <h4 style={{ color: '#d4a373', fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', marginBottom: '5px', letterSpacing: '1px' }}>Start for free</h4>
-              <h1 style={{ fontSize: '34px', fontWeight: '700', color: '#1a1a1a', marginBottom: '10px' }}>Sign in to Matrimony</h1>
+              <h1 style={{ fontSize: '30px', fontWeight: '700', color: '#1a1a1a', marginBottom: '10px' }}>Sign in to Matrimony</h1>
               <p style={{ fontSize: '15px', color: '#666' }}>
                 Not a member? <a href="/user/user-sign-up" style={{ color: '#3498db', fontWeight: '700' }}>Sign up now</a>
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} style={{ borderTop: '1px solid #efefef', paddingTop: '30px' }}>
+            <form onSubmit={handleSubmit} style={{ borderTop: '1px solid #efefef', paddingTop: '20px' }}>
               {loginError && (
                 <div className="alert alert-danger" style={{ borderRadius: '8px', fontSize: '14px' }}>
                   {loginError}
@@ -230,7 +326,7 @@ export default function SidebarLoginComponent({ closePopup }) {
                   }}
                 />
                 {errors.email && (
-                  <div className="invalid-feedback">{errors.email}</div>
+                  <div className="invalid-feedback" style={{ display: 'block' }}>{errors.email}</div>
                 )}
               </div>
 
@@ -266,7 +362,7 @@ export default function SidebarLoginComponent({ closePopup }) {
                   </span>
                 </div>
                 {errors.password && (
-                  <div className="invalid-feedback">{errors.password}</div>
+                  <div className="invalid-feedback" style={{ display: 'block' }}>{errors.password}</div>
                 )}
               </div>
 
@@ -305,8 +401,8 @@ export default function SidebarLoginComponent({ closePopup }) {
               </button>
             </form>
 
-            <div style={{ marginTop: '25px' }}>
-              <a href="/forgot-password" style={{ color: '#111', fontSize: '14px', fontWeight: '600', textDecoration: 'none' }}>Forgot your password?</a>
+            <div style={{ marginTop: '25px', textAlign: 'center' }}>
+              <a href="/forgot-password" style={{ color: '#333', fontSize: '14px', fontWeight: '600', textDecoration: 'none' }}>Forgot your password?</a>
             </div>
           </div>
 

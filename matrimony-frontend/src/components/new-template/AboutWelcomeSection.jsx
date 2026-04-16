@@ -88,31 +88,48 @@ import couple20 from '../../assets/new-template/images/couples/20.jpg';
 export default function AboutWelcomeSection() {
   return (
     <section>
-      <div className="ab-wel">
+      <div className="temp-ab-wel">
         <div className="container" style={{ maxWidth: '1350px', width: '100%' }}>
           <div className="row">
 
+            {/* Mobile Only: Headline above the image */}
+            <div className="col-12 d-block d-lg-none">
+              <div className="temp-ab-wel-tit" style={{ textAlign: 'center', marginBottom: '30px' }}>
+                <h2>
+                  <span style={{ color: '#b88a1b' }}>Welcome to</span>{" "}
+                  <em style={{ color: '#e91e63', fontStyle: 'normal' }}>
+                    Wedding matrimony
+                  </em>
+                </h2>
+              </div>
+            </div>
+
+            {/* Image Column */}
             <div className="col-lg-6">
-              <div className="ab-wel-lhs">
+              <div className="temp-ab-wel-lhs">
                 <span className="ab-wel-3" />
-                <img src={about1} alt="" loading="lazy" className="ab-wel-1" />
-                <img src={couple20} alt="" loading="lazy" className="ab-wel-2" />
+                <img src={about1} alt="" loading="lazy" className="temp-ab-wel-1" />
+                <img src={couple20} alt="" loading="lazy" className="temp-ab-wel-2" />
                 <span className="ab-wel-4" />
               </div>
             </div>
 
+            {/* Text/Content Column */}
             <div className="col-lg-6">
-              <div className="ab-wel-rhs">
+              <div className="temp-ab-wel-rhs">
 
-                <div className="ab-wel-tit">
+                {/* Desktop Only: Headline inside the right column */}
+                <div className="temp-ab-wel-tit d-none d-lg-block">
                   <h2>
                     <span style={{ color: '#b88a1b' }}>Welcome to</span>{" "}
                     <em style={{ color: '#e91e63', fontStyle: 'normal' }}>
                       Wedding matrimony
                     </em>
                   </h2>
+                </div>
 
-                  {/* 🖤 Content */}
+                {/* Content - Always below Image on mobile */}
+                <div className="temp-ab-wel-tit">
                   <p style={{ color: '#b88a1b' }}>
                     Best wedding matrimony It is a long established fact that a reader
                     will be distracted by the readable content of a page when looking at
@@ -127,7 +144,7 @@ export default function AboutWelcomeSection() {
                   </p>
                 </div>
 
-                <div className="ab-wel-tit-1">
+                <div className="temp-ab-wel-tit-1">
                   <p style={{ color: '#b88a1b' }}>
                     There are many variations of passages of Lorem Ipsum available, but
                     the majority have suffered alteration in some form, by injected
@@ -136,7 +153,7 @@ export default function AboutWelcomeSection() {
                   </p>
                 </div>
 
-                <div className="ab-wel-tit-2">
+                <div className="temp-ab-wel-tit-2">
                   <ul>
                     <li>
                       <div>

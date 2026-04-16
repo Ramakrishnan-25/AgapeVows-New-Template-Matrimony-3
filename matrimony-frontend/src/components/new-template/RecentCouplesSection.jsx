@@ -42,23 +42,20 @@ export default function RecentCouplesSection() {
       <div className="container" style={{ maxWidth: '1350px', width: '100%' }}>
           <div className="row">
             
-            <div className="home-tit" style={{ textAlign: 'center', marginBottom: '50px' }}>
+            <div className="home-tit" style={{ textAlign: 'center' }}>
               
               {/* 🔥 Trusted Brand → BLACK */}
               <p style={{ 
                 color: '#000000', 
                 textTransform: 'uppercase', 
                 letterSpacing: '2px', 
-                fontWeight: '500', 
-                fontSize: '20px', 
-                marginBottom: '10px' 
+                fontWeight: '500'
               }}>
                 Trusted Brand
               </p>
 
               {/* 🔥 Recent Couples → VIOLET */}
               <h2 style={{ 
-                fontSize: '56px', 
                 color: '#333', 
                 fontFamily: '"Playfair Display", serif', 
                 fontWeight: 'bold' 

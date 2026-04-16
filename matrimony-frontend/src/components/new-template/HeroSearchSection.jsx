@@ -227,7 +227,7 @@ export default function HeroSearchSection() {
     }
   }
   return (
-    <>
+    <div className="hero-main-wrapper">
       {/* BANNER SLIDER (BACKGROUND) */}
       <section className="hom-ban-sli">
         <div>
@@ -399,7 +399,7 @@ export default function HeroSearchSection() {
           background: #7e22ce;
         }
       `}</style>
-    </>
+    </div>
   );
 }
 

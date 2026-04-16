@@ -24,7 +24,6 @@ export default function HowItWorksSection() {
 
               <h2
                 style={{
-                  fontSize: '50px',
                   fontFamily: '"Playfair Display", serif',
                   fontWeight: 'bold',
                 }}

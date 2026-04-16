@@ -52,9 +52,9 @@ export default function TrustBrandsSection() {
       >
        <div className="container" style={{ maxWidth: '1350px' }}>
           <div className="row">
-            <div className="home-tit" style={{ textAlign: 'center', marginBottom: '50px' }}>
-              <p style={{ color: '#000000ff', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '500', fontSize: '20px', marginBottom: '10px' }}>Trusted Brand</p>
-              <h2 style={{ fontSize: '56px', color: '#333', fontFamily: '"Playfair Display", serif', fontWeight: 'bold' }}>
+            <div className="home-tit" style={{ textAlign: 'center' }}>
+              <p style={{ color: '#000000ff', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '500' }}>Trusted Brand</p>
+              <h2 style={{ color: '#333', fontFamily: '"Playfair Display", serif', fontWeight: 'bold' }}>
                 <span
                   style={{
                     position: 'relative',
