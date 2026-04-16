@@ -212,15 +212,20 @@ export default function HeroSearchSection() {
         state: { formData: formData },
       });
     } else {
-      // Open Login Sidebar Popup
+      // Save redirect info in sessionStorage
+      sessionStorage.setItem("redirectAfterLogin", "/show-searched-result");
+      sessionStorage.setItem("searchData", JSON.stringify(formData));
+
+      // Open Login Popup
       const menuPop = document.querySelector('.menu-pop1');
       const popBg = document.querySelector('.pop-bg');
+
       if (menuPop) menuPop.classList.add('act');
       if (popBg) popBg.classList.add('act');
+
       document.body.style.overflow = 'hidden';
     }
-  };
-
+  }
   return (
     <>
       {/* BANNER SLIDER (BACKGROUND) */}
@@ -252,10 +257,10 @@ export default function HeroSearchSection() {
       </section>
 
       {/* HERO CONTENT & SEARCH */}
-     <section 
-  className="hero-search-container"
-  style={{ marginBottom: '-34px' }}
->
+      <section
+        className="hero-search-container"
+        style={{ marginBottom: '-34px' }}
+      >
         <div className="container">
           <div className="hero-content-wrapper">
 

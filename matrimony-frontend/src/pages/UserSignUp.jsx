@@ -332,12 +332,17 @@ const UserSignUp = () => {
           <div className="container">
             <div className="row">
               <div className="inn">
-                <div className="lhs">
+               <div 
+  className="lhs"
+  style={{
+    background: '#A020F0',
+  }}
+>
                   <div className="tit">
                     <h2>
                       Now{" "}
                       <b style={{ color: "white" }}>
-                        Find your life partner
+                        Find Your Life Partner
                       </b>{" "}
                       Easy and fast.
                     </h2>

@@ -223,12 +223,19 @@ const ForgotPassword = () => {
           <div className="container">
             <div className="row">
               <div className="inn">
-                <div className="lhs">
-                  <div className="tit">
-                    <h2>
-                      Reset your <b>password</b> Easy and fast.
-                    </h2>
-                  </div>
+               <div 
+  className="lhs"
+  style={{
+    background: '#A020F0',
+  }}
+>
+                 <div className="tit">
+  <h2>
+    <span style={{ color: "#fff" }}>Reset your </span>
+    <b style={{ color: "#100f0fff" }}>Password</b>
+    <span style={{ color: "#fff" }}> Easy and fast.</span>
+  </h2>
+</div>
                   <div className="im">
                     <img src="images/login-couple.png" alt="" />
                   </div>

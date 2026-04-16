@@ -74,19 +74,26 @@ export default function SidebarLoginComponent({ closePopup }) {
           localStorage.setItem("userImage", response.data.profileImage);
         }
 
+        // ✅ Get redirect path from sessionStorage
         const redirectPath =
-          location.state?.from || "/user/user-dashboard-page";
+          sessionStorage.getItem("redirectAfterLogin") ||
+          "/user/user-dashboard-page";
+
+        // ✅ Get search data if exists
+        const searchData = sessionStorage.getItem("searchData");
 
         // Close popup first
         if (closePopup) closePopup();
 
-        // Redirect
+        // ✅ Navigate properly
         navigate(redirectPath, {
           replace: true,
-          state: {
-            formData: location.state?.formData,
-          },
+          state: searchData ? { formData: JSON.parse(searchData) } : {},
         });
+
+        // ✅ Clear sessionStorage (important)
+        sessionStorage.removeItem("redirectAfterLogin");
+        sessionStorage.removeItem("searchData");
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -103,57 +110,76 @@ export default function SidebarLoginComponent({ closePopup }) {
   return (
     <>
       <div className="pop-bg" onClick={closePopup}></div>
-      <div className="menu-pop menu-pop1 large-login-drawer" style={{ 
-        height: 'auto', 
-        minHeight: 'auto', 
-        top: '50%', 
+      <div className="menu-pop menu-pop1 large-login-drawer" style={{
+        height: 'auto',
+        minHeight: 'auto',
+        top: '50%',
         left: '-100vw', // Initial state
-        transform: 'translate(-50%, -50%)', 
-        borderRadius: '15px', 
+        transform: 'translate(-50%, -50%)',
+        borderRadius: '15px',
         overflow: 'hidden',
         boxShadow: '0 10px 50px rgba(0,0,0,0.2)',
         background: '#fff',
         width: '90%',
         transition: 'all 0.5s ease-in-out'
       }}>
-        <span className="menu-pop-clo" onClick={closePopup} style={{ 
-          cursor: 'pointer', 
-          zIndex: 100, 
-          position: 'absolute', 
-          right: '25px', 
-          top: '20px', 
-          color: '#888',
-          fontSize: '32px',
-          fontWeight: '300'
-        }}>
+        <span
+          className="menu-pop-clo"
+          onClick={closePopup}
+          style={{
+            cursor: 'pointer',
+            zIndex: 100,
+            position: 'absolute',
+            right: '25px',
+            top: '20px',
+            color: '#aaa',
+            fontSize: '32px',
+            fontWeight: '300',
+            transition: 'all 0.3s ease',
+            padding: '5px 10px',
+            borderRadius: '50%'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.color = '#d4af37'; // gold
+            e.target.style.transform = 'rotate(90deg) scale(1.2)';
+            e.target.style.background = 'rgba(255,255,255,0.1)';
+            e.target.style.boxShadow = '0 0 10px rgba(212,175,55,0.6)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.color = '#aaa';
+            e.target.style.transform = 'rotate(0deg) scale(1)';
+            e.target.style.background = 'transparent';
+            e.target.style.boxShadow = 'none';
+          }}
+        >
           &times;
         </span>
-        
+
         <div style={{ display: 'flex', flexDirection: 'row', minHeight: '580px' }}>
-          
+
           {/* Left Side: Branding */}
-          <div style={{ 
-            width: '42%', 
-            background: '#f8d98d', 
-            padding: '60px 45px', 
-            position: 'relative', 
-            display: 'flex', 
-            flexDirection: 'column', 
+          <div style={{
+            width: '42%',
+            background: '#c9a227',
+            padding: '60px 45px',
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
             justifyContent: 'flex-start'
           }}>
             <div style={{ zIndex: 2 }}>
-              <h2 style={{ fontSize: '38px', fontWeight: '400', color: '#111', lineHeight: '1', margin: '0 0 10px 0' }}>Now</h2>
+              <h2 style={{ fontSize: '38px', fontWeight: '400', color: '#9333ea', lineHeight: '1', margin: '0 0 10px 0' }}>Now</h2>
               <h1 style={{ fontSize: '72px', fontWeight: '800', color: '#fff', lineHeight: '0.9', margin: '0 0 20px 0' }}>Find your life partner</h1>
-              <h2 style={{ fontSize: '48px', fontWeight: '700', color: '#111', lineHeight: '1', margin: 0 }}>Easy and fast.</h2>
+              <h2 style={{ fontSize: '48px', fontWeight: '700', color: '#9333ea', lineHeight: '1', margin: 0 }}>Easy and fast.</h2>
             </div>
-            
-            <div style={{ 
-              position: 'absolute', 
-              bottom: 0, 
-              left: 0, 
-              width: '100%', 
-              height: '130px', 
-              backgroundImage: `url(${loginBg})`, 
+
+            <div style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              width: '100%',
+              height: '130px',
+              backgroundImage: `url(${loginBg})`,
               backgroundSize: '100% auto',
               backgroundPosition: 'bottom center',
               backgroundRepeat: 'no-repeat',
@@ -162,13 +188,13 @@ export default function SidebarLoginComponent({ closePopup }) {
           </div>
 
           {/* Right Side: Form */}
-          <div style={{ 
-            width: '58%', 
-            padding: '60px 70px', 
-            background: '#fff', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            justifyContent: 'center' 
+          <div style={{
+            width: '58%',
+            padding: '60px 70px',
+            background: '#fff',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center'
           }}>
             <div style={{ marginBottom: '40px' }}>
               <h4 style={{ color: '#d4a373', fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', marginBottom: '5px', letterSpacing: '1px' }}>Start for free</h4>
@@ -195,9 +221,9 @@ export default function SidebarLoginComponent({ closePopup }) {
                   value={formData.email}
                   onChange={handleInputChange}
                   disabled={isLoading}
-                  style={{ 
-                    border: '1px solid #ddd', 
-                    borderRadius: '8px', 
+                  style={{
+                    border: '1px solid #ddd',
+                    borderRadius: '8px',
                     padding: '12px 15px',
                     height: 'auto',
                     fontSize: '15px'
@@ -219,10 +245,10 @@ export default function SidebarLoginComponent({ closePopup }) {
                     value={formData.password}
                     onChange={handleInputChange}
                     disabled={isLoading}
-                    style={{ 
-                      paddingRight: '45px', 
-                      border: '1px solid #ddd', 
-                      borderRadius: '8px', 
+                    style={{
+                      paddingRight: '45px',
+                      border: '1px solid #ddd',
+                      borderRadius: '8px',
                       padding: '12px 15px',
                       height: 'auto',
                       fontSize: '15px'
@@ -263,14 +289,14 @@ export default function SidebarLoginComponent({ closePopup }) {
                 type="submit"
                 className="btn btn-primary"
                 disabled={isLoading}
-                style={{ 
-                  background: "#9b30ff", 
-                  border: 'none', 
-                  color: "#fff", 
-                  width: '100%', 
-                  padding: '14px', 
-                  borderRadius: '10px', 
-                  fontSize: '18px', 
+                style={{
+                  background: "#9b30ff",
+                  border: 'none',
+                  color: "#fff",
+                  width: '100%',
+                  padding: '14px',
+                  borderRadius: '10px',
+                  fontSize: '18px',
                   fontWeight: '700',
                   boxShadow: '0 5px 15px rgba(155, 48, 255, 0.3)'
                 }}

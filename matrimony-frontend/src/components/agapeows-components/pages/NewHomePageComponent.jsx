@@ -29,22 +29,22 @@ const NewHomePageComponent = () => {
   return (
     <div className="min-h-screen relative" id="new-homepage-wrapper">
       {/* Fixed Leaf Decorations - Optimized to match Screenshot 1 */}
-    <div className="fixed top-[80px] left-[-30px] pointer-events-none z-[50] w-[230px] md:w-[260px] lg:w-[290px] opacity-90">
-  <img
-    src={leaf5}
-    className="w-full h-auto"
-    alt=""
-    style={{ transform: 'rotate(15deg)' }}
-  />
-</div>
+      <div className="fixed top-[80px] left-[-30px] pointer-events-none z-[50] w-[230px] md:w-[260px] lg:w-[290px] opacity-90">
+        <img
+          src={leaf5}
+          className="w-full h-auto"
+          alt=""
+          style={{ transform: 'rotate(15deg)' }}
+        />
+      </div>
       <div className="fixed bottom-0 right-0 pointer-events-none z-[10] w-[100px] md:w-[120px] lg:w-[150px] opacity-90">
-  <img
-    src={leaf8}
-    className="w-full h-auto"
-    alt=""
-    style={{ transform: 'rotate(-5deg) translate(5%, 5%)' }}
-  />
-</div>
+        <img
+          src={leaf8}
+          className="w-full h-auto"
+          alt=""
+          style={{ transform: 'rotate(-5deg) translate(5%, 5%)' }}
+        />
+      </div>
 
       <div className="fixed top-0 left-0 right-0 z-[101]">
         <MainLayout />
