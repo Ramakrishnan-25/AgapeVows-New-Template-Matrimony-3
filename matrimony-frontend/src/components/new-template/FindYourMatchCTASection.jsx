@@ -2,12 +2,15 @@ export default function FindYourMatchCTASection() {
   return (
     <section
       style={{
-        paddingTop: '60px',
-        paddingBottom: '60px',
+        paddingTop: '10px',
+        paddingBottom: '40px',
+
+        // 🔥 ADD THIS
         position: "relative",
         zIndex: 20,
-        backgroundColor: '#f3e8ff', // Light purple background to distinguish it
-        marginTop: '0px'
+        marginBottom: "-120px",
+        transform: "translateY(350px)",
+        marginTop: "-410px"
       }}
     >
       <div className="str count">

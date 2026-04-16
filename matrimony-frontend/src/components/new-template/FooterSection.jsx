@@ -14,14 +14,12 @@ import gal6 from '../../assets/new-template/images/gallery/6.jpg';
 export default function FooterSection() {
   return (
     <>
-      <footer className="agape-vows-footer" style={{
-        backgroundColor: '#9333ea', // purple-600 explicit color
+      <footer className="agape-vows-footer bg-purple-600" style={{
         color: '#fff',
         padding: '30px 0 20px',
-        marginTop: '0px', 
-        paddingTop: '100px', // Normalized from 450px to prevent huge gaps if content shifts
-        position: 'relative',
-        zIndex: 1,
+        marginTop: '0px',        // 🔥 changed
+        paddingTop: '450px',     // 🔥 added
+
         fontFamily: "'Poppins', sans-serif"
       }}>
         <style>{`
