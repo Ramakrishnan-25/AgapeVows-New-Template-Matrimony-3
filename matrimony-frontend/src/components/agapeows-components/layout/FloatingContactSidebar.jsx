@@ -108,72 +108,85 @@ const FloatingContactSidebar = () => {
         </form>
       </div>
 
-      {/* Sidebar Buttons */}
-      <div
-        className={`transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] flex flex-col items-end ${isOpen ? "translate-x-0" : "translate-x-[50px] opacity-20"}`}
-      >
-        {/* Toggle Arrow */}
+      {/* Sidebar Buttons Stack */}
+      <div className="flex flex-col items-end">
+        {/* Toggle Arrow - Always visible at the top */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="bg-[#d4af37] text-white p-2 rounded-tl-xl shadow-lg hover:bg-[#d81b60] transition-colors w-[50px] h-[40px] flex justify-center items-center border-b border-white/10"
+          className={`bg-[#d4af37] text-white p-2 shadow-lg hover:bg-[#d81b60] transition-all w-[50px] h-[45px] flex justify-center items-center border-b border-white/10 z-[10000] ${
+            isOpen ? "rounded-tl-xl" : "rounded-l-xl animate-pulse"
+          }`}
           title={isOpen ? "Collapse" : "Expand"}
         >
-          {isOpen ? <ChevronRight size={20} className="animate-pulse" /> : <ChevronLeft size={20} className="animate-pulse" />}
+          {isOpen ? (
+            <ChevronRight size={22} className="animate-pulse" />
+          ) : (
+            <ChevronLeft size={22} className="animate-pulse" />
+          )}
         </button>
 
-        {/* Enquire Now Panel */}
+        {/* Sliding Buttons Container */}
         <div
-          className="bg-[#0071bc] text-white flex flex-col items-center justify-center py-6 px-1 hover:bg-[#005a96] transition-all w-[50px] min-h-[180px] border-b border-white/10 cursor-pointer group shine-effect"
-          onMouseEnter={() => setShowForm(true)}
+          className={`transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] flex flex-col items-end ${
+            isOpen 
+              ? "translate-x-0 opacity-100" 
+              : "translate-x-[60px] opacity-0 pointer-events-none h-0"
+          }`}
         >
-          <Mail size={22} className="mb-4 group-hover:scale-110 transition-transform" />
-          <span
-            style={{
-              writingMode: 'vertical-rl',
-              textOrientation: 'mixed',
-              transform: 'rotate(180deg)'
-            }}
-            className="uppercase tracking-widest text-[11px] font-bold whitespace-nowrap select-none group-hover:tracking-[0.2em] transition-all"
+          {/* Enquire Now Panel */}
+          <div
+            className="bg-[#0071bc] text-white flex flex-col items-center justify-center py-6 px-1 hover:bg-[#005a96] transition-all w-[50px] min-h-[180px] border-b border-white/10 cursor-pointer group shine-effect"
+            onMouseEnter={() => setShowForm(true)}
           >
-            Enquire Now
-          </span>
+            <Mail size={22} className="mb-4 group-hover:scale-110 transition-transform" />
+            <span
+              style={{
+                writingMode: 'vertical-rl',
+                textOrientation: 'mixed',
+                transform: 'rotate(180deg)'
+              }}
+              className="uppercase tracking-widest text-[11px] font-bold whitespace-nowrap select-none group-hover:tracking-[0.2em] transition-all"
+            >
+              Enquire Now
+            </span>
+          </div>
+
+          {/* WhatsApp Section */}
+          <a
+            href="https://wa.me/9153125312"
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => setHoveredBtn('whatsapp')}
+            onMouseLeave={() => setHoveredBtn(null)}
+            className={`bg-[#25d366] text-white flex items-center justify-end p-3 transition-all duration-300 h-[50px] border-b border-white/10 overflow-hidden ${hoveredBtn === 'whatsapp' ? 'w-[160px]' : 'w-[50px]'}`}
+          >
+            <span className={`transition-opacity duration-300 whitespace-nowrap font-bold text-lg pr-3 ${hoveredBtn === 'whatsapp' ? 'opacity-100' : 'opacity-0'}`}>
+              WhatsApp
+            </span>
+            <svg
+              viewBox="0 0 448 512"
+              width="26"
+              height="26"
+              fill="currentColor"
+              className="shrink-0"
+            >
+              <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.7 17.8 69.4 27.2 106.2 27.2 122.4 0 222-99.6 222-222 0-59.3-23-115.1-65-157.1zM223.9 446.3c-33.1 0-65.6-8.9-93.9-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.5-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-82.7 184.6-184.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.2-3.2-5.6-.3-8.6 2.5-11.3 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.6 5.6-9.3 1.9-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.3 5.7 23.7 9.2 31.8 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+            </svg>
+          </a>
+  
+          {/* Phone Section */}
+          <a
+            href="tel:+9153125312"
+            onMouseEnter={() => setHoveredBtn('phone')}
+            onMouseLeave={() => setHoveredBtn(null)}
+            className={`bg-[#e91e63] text-white flex items-center justify-end p-3 transition-all duration-300 h-[60px] rounded-bl-xl overflow-hidden ${hoveredBtn === 'phone' ? 'w-[180px]' : 'w-[50px]'}`}
+          >
+            <span className={`transition-opacity duration-300 whitespace-nowrap font-bold text-lg pr-3 ${hoveredBtn === 'phone' ? 'opacity-100' : 'opacity-0'}`}>
+              Call Us Now
+            </span>
+            <Phone size={24} className="shrink-0" />
+          </a>
         </div>
-
-        {/* WhatsApp Section */}
-        <a
-          href="https://wa.me/9153125312"
-          target="_blank"
-          rel="noopener noreferrer"
-          onMouseEnter={() => setHoveredBtn('whatsapp')}
-          onMouseLeave={() => setHoveredBtn(null)}
-          className={`bg-[#25d366] text-white flex items-center justify-end p-3 transition-all duration-300 h-[50px] border-b border-white/10 overflow-hidden ${hoveredBtn === 'whatsapp' ? 'w-[160px]' : 'w-[50px]'}`}
-        >
-          <span className={`transition-opacity duration-300 whitespace-nowrap font-bold text-lg pr-3 ${hoveredBtn === 'whatsapp' ? 'opacity-100' : 'opacity-0'}`}>
-            WhatsApp
-          </span>
-          <svg
-            viewBox="0 0 448 512"
-            width="26"
-            height="26"
-            fill="currentColor"
-            className="shrink-0"
-          >
-            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.7 17.8 69.4 27.2 106.2 27.2 122.4 0 222-99.6 222-222 0-59.3-23-115.1-65-157.1zM223.9 446.3c-33.1 0-65.6-8.9-93.9-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.5-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-82.7 184.6-184.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.2-3.2-5.6-.3-8.6 2.5-11.3 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.6 5.6-9.3 1.9-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.3 5.7 23.7 9.2 31.8 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-          </svg>
-        </a>
-
-        {/* Phone Section */}
-        <a
-          href="tel:+9153125312"
-          onMouseEnter={() => setHoveredBtn('phone')}
-          onMouseLeave={() => setHoveredBtn(null)}
-          className={`bg-[#e91e63] text-white flex items-center justify-end p-3 transition-all duration-300 h-[60px] rounded-bl-xl overflow-hidden ${hoveredBtn === 'phone' ? 'w-[180px]' : 'w-[50px]'}`}
-        >
-          <span className={`transition-opacity duration-300 whitespace-nowrap font-bold text-lg pr-3 ${hoveredBtn === 'phone' ? 'opacity-100' : 'opacity-0'}`}>
-            Call Us Now
-          </span>
-          <Phone size={24} className="shrink-0" />
-        </a>
       </div>
     </div>
   );
