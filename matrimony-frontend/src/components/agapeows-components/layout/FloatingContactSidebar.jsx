@@ -13,12 +13,49 @@ const FloatingContactSidebar = () => {
   };
 
   return (
-    <div className="fixed right-0 top-[55%] -translate-y-1/2 z-[9999] flex items-center gap-0">
+    <div className="fixed right-0 top-[62%] md:top-[60%] -translate-y-1/2 z-[9999] flex items-center gap-0">
+      <style>
+        {`
+          @keyframes float {
+            0% { transform: translateY(0px) rotate(180deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(180deg); }
+          }
+          .animate-float-vertical {
+            animation: float 3s ease-in-out infinite;
+          }
+          
+          @keyframes shine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+          }
+          .shine-effect {
+            position: relative;
+            overflow: hidden;
+          }
+          .shine-effect::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 50%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(30deg);
+            animation: shine 4s infinite;
+          }
+        `}
+      </style>
+      
       {/* Enquiry Form Popup */}
       <div
-        className={`absolute right-[60px] top-1/2 -translate-y-1/2 w-[350px] bg-white rounded-2xl shadow-2xl p-6 transition-all duration-300 transform ${showForm ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10 pointer-events-none"}`}
+        className={`absolute right-[55px] md:right-[60px] top-1/2 -translate-y-1/2 w-[260px] md:w-[350px] bg-white rounded-2xl shadow-2xl p-4 md:p-6 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform ${
+          showForm 
+            ? "opacity-100 translate-x-0 scale-100 rotate-0" 
+            : "opacity-0 translate-x-10 scale-90 -rotate-2 pointer-events-none"
+        }`}
         onMouseEnter={() => setShowForm(true)}
-        onMouseLeave={() => setShowForm(false)}
       >
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-[#0071bc] text-xl font-bold font-sans">Write us!, Let's Talk!</h2>
@@ -36,7 +73,7 @@ const FloatingContactSidebar = () => {
               type="text"
               placeholder="Name*"
               required
-              className="w-full px-4 py-3 rounded-full border border-gray-200 focus:border-[#0071bc] focus:ring-1 focus:ring-[#0071bc] outline-none transition-all placeholder:text-gray-400"
+              className="w-full px-4 py-3 rounded-full border border-gray-200 focus:border-[#0071bc] focus:ring-1 focus:ring-[#0071bc] outline-none transition-all placeholder:text-gray-400 hover:border-[#0071bc]/50"
             />
           </div>
           <div>
@@ -44,14 +81,14 @@ const FloatingContactSidebar = () => {
               type="tel"
               placeholder="Phone*"
               required
-              className="w-full px-4 py-3 rounded-full border border-gray-200 focus:border-[#0071bc] focus:ring-1 focus:ring-[#0071bc] outline-none transition-all placeholder:text-gray-400"
+              className="w-full px-4 py-3 rounded-full border border-gray-200 focus:border-[#0071bc] focus:ring-1 focus:ring-[#0071bc] outline-none transition-all placeholder:text-gray-400 hover:border-[#0071bc]/50"
             />
           </div>
           <div>
             <input
               type="email"
               placeholder="Email"
-              className="w-full px-4 py-3 rounded-full border border-gray-200 focus:border-[#0071bc] focus:ring-1 focus:ring-[#0071bc] outline-none transition-all placeholder:text-gray-400"
+              className="w-full px-4 py-3 rounded-full border border-gray-200 focus:border-[#0071bc] focus:ring-1 focus:ring-[#0071bc] outline-none transition-all placeholder:text-gray-400 hover:border-[#0071bc]/50"
             />
           </div>
           <div>
@@ -59,12 +96,12 @@ const FloatingContactSidebar = () => {
               placeholder="Message*"
               required
               rows="3"
-              className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:border-[#0071bc] focus:ring-1 focus:ring-[#0071bc] outline-none transition-all placeholder:text-gray-400 resize-none"
+              className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:border-[#0071bc] focus:ring-1 focus:ring-[#0071bc] outline-none transition-all placeholder:text-gray-400 resize-none hover:border-[#0071bc]/50"
             ></textarea>
           </div>
           <button
             type="submit"
-            className="w-full bg-[#0071bc] text-white font-bold py-3 px-6 rounded-full hover:bg-[#005a96] transition-all shadow-md active:scale-[0.98]"
+            className="w-full bg-[#0071bc] text-white font-bold py-3 px-6 rounded-full hover:bg-[#005a96] transition-all shadow-md active:scale-[0.98] shine-effect"
           >
             Submit
           </button>
@@ -73,7 +110,7 @@ const FloatingContactSidebar = () => {
 
       {/* Sidebar Buttons */}
       <div
-        className={`transition-all duration-500 ease-in-out flex flex-col items-end ${isOpen ? "translate-x-0" : "translate-x-[50px]"}`}
+        className={`transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] flex flex-col items-end ${isOpen ? "translate-x-0" : "translate-x-[50px] opacity-20"}`}
       >
         {/* Toggle Arrow */}
         <button
@@ -81,23 +118,22 @@ const FloatingContactSidebar = () => {
           className="bg-[#d4af37] text-white p-2 rounded-tl-xl shadow-lg hover:bg-[#d81b60] transition-colors w-[50px] h-[40px] flex justify-center items-center border-b border-white/10"
           title={isOpen ? "Collapse" : "Expand"}
         >
-          {isOpen ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
+          {isOpen ? <ChevronRight size={20} className="animate-pulse" /> : <ChevronLeft size={20} className="animate-pulse" />}
         </button>
 
         {/* Enquire Now Panel */}
         <div
-          className="bg-[#0071bc] text-white flex flex-col items-center justify-center py-6 px-1 hover:bg-[#005a96] transition-all w-[50px] min-h-[180px] border-b border-white/10 cursor-pointer"
+          className="bg-[#0071bc] text-white flex flex-col items-center justify-center py-6 px-1 hover:bg-[#005a96] transition-all w-[50px] min-h-[180px] border-b border-white/10 cursor-pointer group shine-effect"
           onMouseEnter={() => setShowForm(true)}
-          onMouseLeave={() => setShowForm(false)}
         >
-          <Mail size={22} className="mb-4" />
+          <Mail size={22} className="mb-4 group-hover:scale-110 transition-transform" />
           <span
             style={{
               writingMode: 'vertical-rl',
               textOrientation: 'mixed',
               transform: 'rotate(180deg)'
             }}
-            className="uppercase tracking-widest text-[11px] font-bold whitespace-nowrap select-none"
+            className="uppercase tracking-widest text-[11px] font-bold whitespace-nowrap select-none group-hover:tracking-[0.2em] transition-all"
           >
             Enquire Now
           </span>
