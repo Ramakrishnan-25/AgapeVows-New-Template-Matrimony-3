@@ -217,8 +217,7 @@ import Footer from "../components/Footer";
 import CopyRights from "../components/CopyRights";
 import { sendSignUpRequest } from "../api/axiosService/userSignUpService";
 import LayoutComponent from "../components/layouts/LayoutComponent";
-
-// ✅ NEW IMPORT
+// ✅ REMOVED SidebarLoginComponent as we use the one from MainLayout
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
@@ -240,6 +239,17 @@ const UserSignUp = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  
+  // Login Popup Logic (Using MainLayout's sidebar)
+  const openLoginPopup = (e) => {
+    e.preventDefault();
+    const menuPop = document.querySelector('.menu-pop1');
+    const popBg = document.querySelector('.pop-bg');
+    if (menuPop) menuPop.classList.add('act');
+    if (popBg) popBg.classList.add('act');
+    document.querySelectorAll('.mob-me-all').forEach((el) => el.classList.remove('act'));
+    document.body.style.overflow = 'hidden';
+  };
 
   // ✅ NEW STATE FOR PASSWORD VIEW
   const [showPassword, setShowPassword] = useState(false);
@@ -332,12 +342,12 @@ const UserSignUp = () => {
           <div className="container">
             <div className="row">
               <div className="inn">
-               <div 
-  className="lhs"
-  style={{
-    background: '#A020F0',
-  }}
->
+                <div
+                  className="lhs"
+                  style={{
+                    background: '#A020F0',
+                  }}
+                >
                   <div className="tit">
                     <h2>
                       Now{" "}
@@ -360,7 +370,12 @@ const UserSignUp = () => {
                       <h1>Sign up to Matrimony</h1>
                       <p>
                         Already a member?{" "}
-                        <a href="/user/user-login">Login</a>
+                        <a
+                          href="#!"
+                          onClick={openLoginPopup}
+                        >
+                          Login
+                        </a>
                       </p>
                     </div>
 

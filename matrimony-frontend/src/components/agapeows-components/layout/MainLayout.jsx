@@ -18,6 +18,7 @@ import { getUserProfile } from "../../../api/axiosService/userAuthService";
 import PreLoader from "../../PreLoader";
 import GlobalSearchModal from "../../GlobalSearchModal";
 import SidebarLoginComponent from "../../new-template/SidebarLoginComponent";
+import FloatingContactSidebar from "./FloatingContactSidebar";
 
 export const SERVICE_CATEGORIES = [
   { title: "Personalized Matrimony", path: "/personalized-matrimony" },
@@ -698,6 +699,10 @@ const MainLayout = () => {
           )}
         </div>
       </header>
+
+      {/* Floating Contact Sidebar */}
+      <FloatingContactSidebar />
+      {/* END Floating Contact Sidebar */}
 
       {/* LOGIN POPUP */}
       <SidebarLoginComponent closePopup={closePopup} />

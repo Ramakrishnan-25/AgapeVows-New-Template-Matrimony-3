@@ -28,6 +28,17 @@ const ForgotPassword = () => {
   const [canResend, setCanResend] = useState(false);
   const [userId, setUserId] = useState(null);
 
+  // Login Popup Logic (Using MainLayout's sidebar)
+  const openLoginPopup = (e) => {
+    e.preventDefault();
+    const menuPop = document.querySelector(".menu-pop1");
+    const popBg = document.querySelector(".pop-bg");
+    if (menuPop) menuPop.classList.add("act");
+    if (popBg) popBg.classList.add("act");
+    document.querySelectorAll(".mob-me-all").forEach((el) => el.classList.remove("act"));
+    document.body.style.overflow = "hidden";
+  };
+
   // Timer effect
   useEffect(() => {
     let interval = null;
@@ -248,7 +259,7 @@ const ForgotPassword = () => {
                       <h1>{step === 1 ? "Forgot Password" : "Verify OTP"}</h1>
                       <p>
                         Remember your password?{" "}
-                        <a href="/user/user-login">Login</a>
+                        <a href="#!" onClick={openLoginPopup}>Login</a>
                       </p>
                     </div>
                     <div className="form-login">
