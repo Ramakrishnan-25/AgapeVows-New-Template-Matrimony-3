@@ -373,11 +373,10 @@ const AdminHeader = () => {
                       {notifications.map((notification, index) => (
                         <div
                           key={notification.id}
-                          className={`${
-                            index < notifications.length - 1
+                          className={`${index < notifications.length - 1
                               ? "border-bottom mb-3 pb-3"
                               : "border-0 mb-3 pb-0"
-                          }`}
+                            }`}
                         >
                           <a href="#">
                             <div className="d-flex">
@@ -455,8 +454,8 @@ const AdminHeader = () => {
                     <span className="avatar-initial rounded-circle bg-primary">
                       {profileData.employeradminUsername
                         ? profileData.employeradminUsername
-                            .charAt(0)
-                            .toUpperCase()
+                          .charAt(0)
+                          .toUpperCase()
                         : "A"}
                     </span>
                   )}
@@ -494,8 +493,8 @@ const AdminHeader = () => {
                             <span className="avatar-initial rounded-circle bg-primary">
                               {profileData.employeradminUsername
                                 ? profileData.employeradminUsername
-                                    .charAt(0)
-                                    .toUpperCase()
+                                  .charAt(0)
+                                  .toUpperCase()
                                 : "A"}
                             </span>
                           )}

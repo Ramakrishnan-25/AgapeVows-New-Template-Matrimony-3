@@ -321,6 +321,20 @@ export const reportIssue = async (formData) => {
   }
 };
 
+
+export const submitEnquiry = async (enquiryData) => {
+  try {
+    const response = await userInstance.post(
+      `/submit-enquiry`,
+      enquiryData
+    );
+    return response;
+  } catch (error) {
+    console.error("Error submitting enquiry:", error);
+    throw error;
+  }
+};
+
 export const getUserCounts = async () => {
   try {
     const response = await userInstance.get(`/get-user-counts`);
