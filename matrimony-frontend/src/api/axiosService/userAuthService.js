@@ -384,3 +384,18 @@ export const uploadIdProof = async (userId, file) => {
   );
   return response;
 };
+
+export const submitFeedback = async (feedbackData) => {
+  try {
+    const response = await userInstance.post(
+      `/api/feedback/submit-feedback`,
+      feedbackData
+    );
+    return response;
+  } catch (error) {
+    console.error("Error submitting feedback:", error);
+    throw error;
+  }
+};
+
+

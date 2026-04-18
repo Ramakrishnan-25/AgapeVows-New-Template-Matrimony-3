@@ -85,7 +85,7 @@ const ShortListedProfile = () => {
     return (
       <div className="db-inte-prof-list">
         <ul>
-          {profileData.map((profile) => (
+          {profileData.filter((p) => p).map((profile) => (
             <li key={profile._id}>
              <div
   className="db-int-pro-1"

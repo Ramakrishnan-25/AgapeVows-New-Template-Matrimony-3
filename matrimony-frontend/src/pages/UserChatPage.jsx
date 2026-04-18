@@ -323,7 +323,9 @@ const UserChatPage = () => {
                               No Chats Available
                             </li>
                           ) : (
-                            chatList.map((chat) => (
+                            chatList
+                              .filter((chat) => chat && chat.participant)
+                              .map((chat) => (
                               <li
                                 key={chat.chatId}
                                 className="db-chat-trig"

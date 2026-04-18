@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { submitFeedback } from '../api/axiosService/userAuthService';
 import logoBImg from '../assets/new-template/images/logo-b.png';
 import social1 from '../assets/new-template/images/social/1.png';
 import social2 from '../assets/new-template/images/social/2.png';
@@ -13,6 +15,37 @@ import gal5 from '../assets/new-template/images/gallery/5.jpg';
 import gal6 from '../assets/new-template/images/gallery/6.jpg';
 
 const Footer = ({ paddingTop = '80px' }) => {
+  const [feedbackData, setFeedbackData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleFeedbackChange = (e) => {
+    const { name, value } = e.target;
+    setFeedbackData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleFeedbackSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    try {
+      const response = await submitFeedback(feedbackData);
+      if (response.status === 201 || response.data.success) {
+        toast.success('Thank you for your feedback!');
+        setFeedbackData({ name: '', email: '', message: '' });
+      } else {
+        toast.error('Failed to submit feedback. Please try again.');
+      }
+    } catch (error) {
+      console.error('Feedback Error:', error);
+      toast.error('An error occurred while submitting feedback.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <>
       <footer className="agape-vows-footer mt-auto" style={{
@@ -201,11 +234,41 @@ const Footer = ({ paddingTop = '80px' }) => {
             {/* Feedback */}
             <div style={{ flex: '1 1 220px', minWidth: '200px' }}>
               <h4 className="footer-section-title">Feedback</h4>
-              <form>
-                <input type="text" placeholder="Name" className="footer-input" />
-                <input type="email" placeholder="Email" className="footer-input" />
-                <textarea rows="4" placeholder="Message" className="footer-input"></textarea>
-                <button className="footer-submit">Submit</button>
+              <form onSubmit={handleFeedbackSubmit}>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  className="footer-input"
+                  value={feedbackData.name}
+                  onChange={handleFeedbackChange}
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  className="footer-input"
+                  value={feedbackData.email}
+                  onChange={handleFeedbackChange}
+                  required
+                />
+                <textarea
+                  name="message"
+                  rows="4"
+                  placeholder="Message"
+                  className="footer-input"
+                  value={feedbackData.message}
+                  onChange={handleFeedbackChange}
+                  required
+                ></textarea>
+                <button
+                  type="submit"
+                  className="footer-submit"
+                  disabled={submitting}
+                >
+                  {submitting ? "Submitting..." : "Submit"}
+                </button>
               </form>
             </div>
 

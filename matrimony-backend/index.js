@@ -59,6 +59,12 @@ app.use("/user", signUpRoute);
 app.use("/user-auth", userAuthRoutes);
 app.use("/admin", adminAuthRoutes);
 
+// Feedback Routes
+const userFeedbackRoutes = require("./routes/userRoutes/feedbackRoutes");
+const adminFeedbackRoutes = require("./routes/adminRoutes/feedbackRoutes");
+app.use("/api/feedback", userFeedbackRoutes);
+app.use("/api/admin/feedback", adminFeedbackRoutes);
+
 // TEST ROUTE DIRECTLY IN INDEX.JS
 app.post("/test-upload-id-proof/:userId", upload.single("idProof"), userAuthController.uploadIdProof);
 

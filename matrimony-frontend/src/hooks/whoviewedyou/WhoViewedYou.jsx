@@ -74,7 +74,7 @@ const WhoViewedYou = () => {
     return (
       <div className="db-inte-prof-list">
         <ul>
-          {profileData.map((profile) => (
+          {profileData.filter((profile) => profile).map((profile) => (
             <li key={profile._id}>
               <div
                 className="db-int-pro-1"

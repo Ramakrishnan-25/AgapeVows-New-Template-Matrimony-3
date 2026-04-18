@@ -47,6 +47,9 @@ import ChurchPartner from "./pages/public/ChurchPartner";
 import MatrimonialAdvisor from "./pages/public/MatrimonialAdvisor";
 import MaritalCounseling from "./pages/public/MaritalCounseling";
 import Blogs from "./pages/public/Blogs";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // Component to handle page reloads
 function ReloadHandler() {
   const location = useLocation();
@@ -184,6 +187,7 @@ function App() {
 
   return (
     <Router>
+      <ToastContainer position="top-right" autoClose={3000} />
       {/* <ReloadHandler /> */}
       <Routes>
         {/* <Route path="/" element={<UserHomePage />} /> */}
