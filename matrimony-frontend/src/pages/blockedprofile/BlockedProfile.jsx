@@ -260,7 +260,7 @@ const BlockedProfile = () => {
         </div>
       </div>
       <Footer />
-      <CopyRights />
+      {/* <CopyRights /> */}
     </div>
   );
 };

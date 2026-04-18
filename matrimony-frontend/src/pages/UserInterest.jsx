@@ -146,7 +146,7 @@ const UserInterest = () => {
       return <div className="alert alert-danger">{error}</div>;
     }
 
-    if (profileData.length === 0) {
+    if (!profileData || profileData.length === 0) {
       return (
         <div className="text-center">No profiles found for this category.</div>
       );
@@ -155,8 +155,10 @@ const UserInterest = () => {
     return (
       <div className="db-inte-prof-list">
         <ul>
-          {profileData.map((profile) => (
-            <li key={profile._id}>
+          {profileData
+            .filter((profile) => profile && profile.senderDetails)
+            .map((profile) => (
+              <li key={profile._id}>
              <div
   className="db-int-pro-1"
   style={{
@@ -419,7 +421,7 @@ const UserInterest = () => {
         </div>
       </div>
       <Footer />
-      <CopyRights />
+      {/* <CopyRights /> */}
     </div>
   );
 };

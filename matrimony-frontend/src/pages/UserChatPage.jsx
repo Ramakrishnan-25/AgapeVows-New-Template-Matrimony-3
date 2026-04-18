@@ -334,43 +334,43 @@ const UserChatPage = () => {
                                   className="db-chat-pro"
                                   style={{ position: "relative" }}
                                 >
-                                 <div
-  className="db-chat-pro"
-  style={{
-    position: "relative",
-    width: "50px",
-    height: "60px" // 👈 extra space for badge
-  }}
->
-  {/* ✅ Badge - TOP CENTER */}
-  <div
-    style={{
-      position: "absolute",
-      top: "0px",
-      left: "50%",
-      transform: "translateX(-50%) scale(0.7)",
-      zIndex: 10
-    }}
-  >
-    <MembershipBadge user={chat.participant} isMini={true} />
-  </div>
+                                  <div
+                                    className="db-chat-pro"
+                                    style={{
+                                      position: "relative",
+                                      width: "50px",
+                                      height: "60px" // 👈 extra space for badge
+                                    }}
+                                  >
+                                    {/* ✅ Badge - TOP CENTER */}
+                                    <div
+                                      style={{
+                                        position: "absolute",
+                                        top: "0px",
+                                        left: "50%",
+                                        transform: "translateX(-50%) scale(0.7)",
+                                        zIndex: 10
+                                      }}
+                                    >
+                                      <MembershipBadge user={chat.participant} isMini={true} />
+                                    </div>
 
-  {/* ✅ Profile Image (pushed down) */}
-  <img
-    src={chat.participant.profileImage || profile1}
-    alt={chat.participant.name}
-    onError={(e) => {
-      e.target.src = profile1;
-    }}
-    style={{
-      width: "50px",
-      height: "50px",
-      borderRadius: "50%",
-      objectFit: "cover",
-      marginTop: "20px" // 👈 space for badge
-    }}
-  />
-</div>
+                                    {/* ✅ Profile Image (pushed down) */}
+                                    <img
+                                      src={chat.participant.profileImage || profile1}
+                                      alt={chat.participant.name}
+                                      onError={(e) => {
+                                        e.target.src = profile1;
+                                      }}
+                                      style={{
+                                        width: "50px",
+                                        height: "50px",
+                                        borderRadius: "50%",
+                                        objectFit: "cover",
+                                        marginTop: "20px" // 👈 space for badge
+                                      }}
+                                    />
+                                  </div>
                                   {/* Online indicator */}
                                   {onlineUsers.includes(
                                     chat.participant._id,
@@ -389,46 +389,46 @@ const UserChatPage = () => {
                                       />
                                     )}
                                 </div>
-                                  <div className="db-chat-bio">
-                                    <h5>{chat.participant.name}</h5>
-                                    <span style={{
-                                      display: 'block',
-                                      maxWidth: '180px',
-                                      textOverflow: 'ellipsis',
-                                      whiteSpace: 'nowrap',
-                                      overflow: 'hidden'
-                                    }}>
-                                      {chat?.lastMessage ? (
-                                        <>
-                                          <strong>{chat.lastMessage.isMyMessage ? "You: " : `${chat.participant.name.split(' ')[0]}: `}</strong>
-                                          {chat.lastMessage.message}
-                                        </>
-                                      ) : (
-                                        "No messages yet"
-                                      )}
-                                    </span>
-                                    <button
-  onClick={(e) => {
-    e.stopPropagation();
-    navigate(`/profile-more-details/${chat.participant._id}`);
-  }}
-  style={{
-    backgroundColor: "#ff5e62",
-    color: "#fff",
-    border: "none",
-    padding: "3px 8px",
-    borderRadius: "6px",
-    cursor: "pointer",
-    fontSize: "0.8rem",
-    fontWeight: "500",
-    transition: "0.3s ease"
-  }}
-  onMouseOver={(e) => (e.target.style.backgroundColor = "#e14b50")}
-  onMouseOut={(e) => (e.target.style.backgroundColor = "#ff5e62")}
->
-  View Full Profile
-</button>
-                                  </div>
+                                <div className="db-chat-bio">
+                                  <h5>{chat.participant.name}</h5>
+                                  <span style={{
+                                    display: 'block',
+                                    maxWidth: '180px',
+                                    textOverflow: 'ellipsis',
+                                    whiteSpace: 'nowrap',
+                                    overflow: 'hidden'
+                                  }}>
+                                    {chat?.lastMessage ? (
+                                      <>
+                                        <strong>{chat.lastMessage.isMyMessage ? "You: " : `${chat.participant.name.split(' ')[0]}: `}</strong>
+                                        {chat.lastMessage.message}
+                                      </>
+                                    ) : (
+                                      "No messages yet"
+                                    )}
+                                  </span>
+                                  <button
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      navigate(`/profile-more-details/${chat.participant._id}`);
+                                    }}
+                                    style={{
+                                      backgroundColor: "#ff5e62",
+                                      color: "#fff",
+                                      border: "none",
+                                      padding: "3px 8px",
+                                      borderRadius: "6px",
+                                      cursor: "pointer",
+                                      fontSize: "0.8rem",
+                                      fontWeight: "500",
+                                      transition: "0.3s ease"
+                                    }}
+                                    onMouseOver={(e) => (e.target.style.backgroundColor = "#e14b50")}
+                                    onMouseOut={(e) => (e.target.style.backgroundColor = "#ff5e62")}
+                                  >
+                                    View Full Profile
+                                  </button>
+                                </div>
                                 <div className="db-chat-info">
                                   <div className="time">
                                     <span className="timer">
@@ -455,7 +455,7 @@ const UserChatPage = () => {
       </div>
 
       <Footer />
-      <CopyRights />
+      {/* <CopyRights /> */}
 
       {/* ChatUi with proper props */}
       {isChatOpen && selectedChat && (

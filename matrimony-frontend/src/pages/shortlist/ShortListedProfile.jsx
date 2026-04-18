@@ -265,7 +265,7 @@ const ShortListedProfile = () => {
         </div>
       </div>
       <Footer />
-      <CopyRights />
+      {/* <CopyRights /> */}
     </div>
   );
 };

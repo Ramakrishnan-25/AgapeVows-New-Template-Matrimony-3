@@ -251,7 +251,7 @@ const IgnoredProfile = () => {
         </div>
       </div>
       <Footer />
-      <CopyRights />
+      {/* <CopyRights /> */}
     </div>
   );
 };
