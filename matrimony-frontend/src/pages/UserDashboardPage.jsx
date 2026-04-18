@@ -445,23 +445,17 @@ const UserDashboardPage = () => {
                         {profileMatches.map((profile, index) => (
                           <li key={profile._id || index}>
                             <div className="db-new-pro" style={{ position: "relative", paddingTop: "10px" }}>
-                              {/* ✅ Badge - TOP CENTER */}
+                              {/* ✅ Badge - TOP LEFT */}
                               <div style={{
                                 position: 'absolute',
-                                top: '-7000px',
-                                right: '150px',
-                                display: 'flex',
-                                flexDirection: 'column',
-
-                                gap: '6px',
+                                top: '-1100px',
+                                left: '10px',
                                 zIndex: 10,
-                                alignItems: 'flex-start',
-                                transform: "scale(0.98)", // optional resize
-                                transformOrigin: "top right"
+                                transform: "scale(0.9)",
+                                transformOrigin: "top left"
                               }}>
-                                <MembershipBadge user={profile} isMini={true} />
+                                <MembershipBadge user={profile} isMini={true} isMinimal={true} />
                               </div>
-
 
                               <img
                                 src={
@@ -470,11 +464,11 @@ const UserDashboardPage = () => {
                                 }
                                 alt={`${profile.userName}'s Profile`}
                                 className="profile"
-                                style={{ marginTop: "10px" }}
                                 onError={(e) => {
                                   e.target.src = "images/profiles/default.jpg";
                                 }}
                               />
+
                               <div>
                                 <h5>{profile.agwid || profile.userName}</h5>
                                 <span className="city mr-5">

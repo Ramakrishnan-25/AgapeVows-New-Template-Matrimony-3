@@ -57,46 +57,14 @@ const AboutPage = () => {
 
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-[170px]">
       <div className="fixed top-0 left-0 right-0 z-50">
         <LayoutComponent />
       </div>
 
-      <section>
-        <div className="ab-sec2">
-          <div className="container">
-            <div className="row">
-              <ul>
-                <li>
-                  <div>
-                    <img src="images/icon/prize.png" alt="" />
-                    <h4>Genuine profiles</h4>
-                    <p>The most trusted wedding matrimony brand</p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <img src="images/icon/trust.png" alt="" />
-                    <h4>Most trusted</h4>
-                    <p>The most trusted wedding matrimony brand</p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <img src="images/icon/rings.png" alt="" />
-                    <h4>2000+ weddings</h4>
-                    <p>The most trusted wedding matrimony brand</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* END */}
-      {/* START */}
-      <section>
-        <div className="ab-wel">
+      {/* WELCOME SECTION */}
+      <section style={{ padding: '20px 0' }}>
+        <div className="ab-wel pt-0">
           <div className="container">
             <div className="row">
               <div className="col-lg-6">

@@ -1,6 +1,6 @@
 import React from "react";
 
-const MembershipBadge = ({ user, isMini = false }) => {
+const MembershipBadge = ({ user, isMini = false, isMinimal = false }) => {
   if (!user || (!user.isAnySubscriptionTaken && !user.paymentDetails)) return null;
 
   // Find active plan name
@@ -55,7 +55,7 @@ const MembershipBadge = ({ user, isMini = false }) => {
   }
 
   return (
-    <div className={`membership-badge ${badgeClass} ${isMini ? "badge-mini" : ""} shadow-sm`}>
+    <div className={`membership-badge ${badgeClass} ${isMini ? "badge-mini" : ""} ${isMinimal ? "badge-minimal" : ""} shadow-sm`}>
       <i className={`fa ${iconClass} badge-icon`}></i>
       <span className="badge-text">{label}</span>
     </div>

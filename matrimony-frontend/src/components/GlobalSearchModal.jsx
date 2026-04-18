@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search, ArrowLeft, ChevronDown } from "lucide-react";
 import MainLayout from "./agapeows-components/layout/MainLayout";
-
+import Footer from "./Footer";
 import { Country, State, City } from "country-state-city";
 
 import { getUserProfile } from "../api/axiosService/userAuthService";
@@ -601,7 +601,7 @@ const GlobalSearchModal = () => {
         <MainLayout />
       </div>
 
-      <div style={{ paddingTop: "150px" }}>
+      <div style={{ paddingTop: "20px" }}>
         <div className="db">
           <div
             className="container-fluid"
@@ -1510,6 +1510,7 @@ ${activeTab === "quick"
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

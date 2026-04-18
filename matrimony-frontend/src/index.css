@@ -152,6 +152,25 @@
   font-size: 10px;
 }
 
+/* Minimal Badge Style (Text & Icon only) */
+.badge-minimal {
+  background: transparent !important;
+  color: #000 !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  text-shadow: none !important;
+}
+
+.badge-minimal .badge-icon,
+.badge-minimal .badge-text {
+  color: #000 !important;
+}
+
+.badge-minimal::after {
+  display: none !important; /* Remove shine effect for platinum */
+}
+
 /* Consistent inner container for sections */
 .container {
   width: 100%;

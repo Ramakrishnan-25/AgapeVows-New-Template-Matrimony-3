@@ -325,6 +325,7 @@
 
 import React, { useState, useEffect } from "react";
 import UserSideBar from "../components/UserSideBar";
+import Footer from "../components/Footer";
 import LayoutComponent from "../components/layouts/LayoutComponent";
 import planIcon from "../assets/images/icon/plan.png";
 import {
@@ -709,6 +710,7 @@ const getRemainingDays = (validFrom, validTo) => {
           </div>
         </div>
       </div>
+      <Footer />
 
     </div>
   );
