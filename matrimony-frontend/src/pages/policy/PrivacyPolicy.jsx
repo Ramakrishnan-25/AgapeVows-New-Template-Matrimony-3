@@ -1,10 +1,19 @@
 import React from 'react';
+import Footer from '../../components/Footer';
+import LayoutComponent from '../../components/layouts/LayoutComponent';
 import './privacypolicy.css';
 
 const PrivacyPolicy = () => {
   return (
-    <div className="privacy-policy-page">
-      <h1>Privacy Policy</h1>
+    <div className="min-h-screen">
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <LayoutComponent />
+      </div>
+
+      <div className="privacy-policy-page pt-32">
+        <h1>Privacy Policy</h1>
+        {/* ... content ... */}
+
 
       <section>
         <h2>1. Introduction</h2>
@@ -143,11 +152,11 @@ const PrivacyPolicy = () => {
         </p>
       </section>
 
-      <footer className="privacy-policy-footer">
-        &copy; 2025 Edprofio. All rights reserved.
-      </footer>
+      </div>
+      <Footer />
     </div>
   );
 };
+
 
 export default PrivacyPolicy;

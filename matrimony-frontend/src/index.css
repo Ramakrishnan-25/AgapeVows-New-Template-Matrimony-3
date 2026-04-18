@@ -94,7 +94,7 @@
 }
 
 .badge-premium {
-  background: linear-gradient(135deg, #f44126 0%, #d45924 100%);
+  background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
   color: #000;
 }
 
@@ -179,3 +179,32 @@
 }
 
 
+
+/* Sticky Footer Support */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.min-h-screen {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Ensure the main content area grows to fill space */
+.min-h-screen > .pt-16, 
+.min-h-screen > main,
+.min-h-screen > div:not(.fixed) {
+  flex: 1 0 auto;
+}
+
+/* Specific fix for the general page layout used in many files */
+.login, .about, .contact, .faq, .events, .blogs {
+  flex: 1;
+}
+
+footer {
+  flex-shrink: 0;
+}

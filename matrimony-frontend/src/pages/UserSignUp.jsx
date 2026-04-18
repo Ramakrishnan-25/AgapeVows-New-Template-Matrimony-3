@@ -350,11 +350,11 @@ const UserSignUp = () => {
                 >
                   <div className="tit">
                     <h2>
-                      Now{" "}
-                      <b style={{ color: "white" }}>
+                      <span style={{ color: "#fff" }}>Now </span>
+                      <b style={{ color: "#FFD700" }}>
                         Find Your Life Partner
                       </b>{" "}
-                      Easy and fast.
+                      <span style={{ color: "#fff" }}>Easy and fast.</span>
                     </h2>
                   </div>
                   <div className="im">

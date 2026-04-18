@@ -339,14 +339,19 @@ const UserLoginPage = () => {
           <div className="container">
             <div className="row">
               <div className="inn">
-                <div className="lhs">
+                <div
+                  className="lhs"
+                  style={{
+                    background: '#A020F0',
+                  }}
+                >
                   <div className="tit">
                     <h2>
-                      Now{" "}
-                      <b style={{ color: "white" }}>
+                      <span style={{ color: "#fff" }}>Now </span>
+                      <b style={{ color: "#FFD700" }}>
                         Find <br /> your life partner
                       </b>{" "}
-                      Easy and fast.
+                      <span style={{ color: "#fff" }}>Easy and fast.</span>
                     </h2>
                   </div>
                   <div className="im">

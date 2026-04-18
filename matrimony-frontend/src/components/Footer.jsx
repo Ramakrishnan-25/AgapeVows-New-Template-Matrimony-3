@@ -1,150 +1,5 @@
-// import React from "react";
-// import social1 from "../assets/images/social/1.png"
-// import social2 from "../assets/images/social/2.png"
-// import social3 from "../assets/images/social/3.png"
-// import social5 from "../assets/images/social/5.png"
-
-
-// const Footer = () => {
-//   return (
-//     <section className="wed-hom-footer" style={{ background: "#A020F0" }}>
-//       <div className="container">
-//         <div className="row foot-supp" style={{ background: "black" }}>
-//           <h2>
-//             <span>Free support:</span> +92 (8800) 68 - 8960
-//             &nbsp;&nbsp;|&nbsp;&nbsp; <span>Email:</span> info@example.com
-//           </h2>
-//         </div>
-//         <div className="row wed-foot-link wed-foot-link-1">
-//           <div className="col-md-4">
-//             <h4 style={{ color: "white" }}>Get In Touch</h4>
-//             <p style={{ color: "white" }}>
-//               Address: 3812 Lena Lane City Jackson Mississippi
-//             </p>
-//             <p style={{ color: "white" }}>
-//               Phone:{" "}
-//               <a href="tel:+917904462944" style={{ color: "white" }}>
-//                 +92 (8800) 68 - 8960
-//               </a>
-//             </p>
-//             <p style={{ color: "white" }}>
-//               Email:{" "}
-//               <a href="mailto:info@example.com" style={{ color: "white" }}>
-//                 info@example.com
-//               </a>
-//             </p>
-//           </div>
-//           <div className="col-md-4" style={{ color: "white" }}>
-//             <h4 style={{ color: "white" }}>HELP &amp; SUPPORT</h4>
-//             <ul>
-//               <li>
-//                 <a href="/about-us" style={{ color: "white" }}>
-//                   About company
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="/contact-page" style={{ color: "white" }}>
-//                   Contact us
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="#!" style={{ color: "white" }}>
-//                   Feedback
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="/faq-page" style={{ color: "white" }}>
-//                   FAQs
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="#" style={{ color: "white" }}>
-//                   Testimonials
-//                 </a>
-//               </li>
-//             </ul>
-//           </div>
-//           <div className="col-md-4 fot-soc">
-//             <h4 style={{ color: "white" }}>SOCIAL MEDIA</h4>
-//             <ul>
-//               <li>
-//                 <a href="#!">
-//                   <img
-//                     src={social1}
-//                     alt=""
-//                     loading="lazy"
-//                   />
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="#!">
-//                   <img
-//                     src={social2}
-//                     alt=""
-//                     loading="lazy"
-//                   />
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="#!">
-//                   <img
-//                     src={social3}
-//                     alt=""
-//                     loading="lazy"
-//                   />
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="#!">
-//                   <img
-//                     src={social5}
-//                     alt=""
-//                     loading="lazy"
-//                   />
-//                 </a>
-//               </li>
-//             </ul>
-//           </div>
-//         </div>
-//         <div className="row foot-count">
-//           <p style={{ color: "white" }}>
-//             Designed and Developed by{" "}
-//             <a
-//               href="https://sensitive.co.in/"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               style={{
-//                 color: "#9de2c7",
-//                 fontWeight: "bold",
-//                 textDecoration: "underline",   // 👈 Always underline
-//                 transition: "0.3s ease",
-//                 cursor: "pointer"
-//               }}
-//               onMouseEnter={(e) => {
-//                 e.target.style.color = "#ffffff";   // Hover போது white
-//               }}
-//               onMouseLeave={(e) => {
-//                 e.target.style.color = "#96f1c6";   // Normal color
-//               }}
-//             >
-//               Sensitive Technologies
-//             </a>.
-//           </p>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Footer;
-
-
-
-
-
-
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logoBImg from '../assets/new-template/images/logo-b.png';
 import social1 from '../assets/new-template/images/social/1.png';
 import social2 from '../assets/new-template/images/social/2.png';
@@ -157,15 +12,17 @@ import gal4 from '../assets/new-template/images/gallery/4.jpg';
 import gal5 from '../assets/new-template/images/gallery/5.jpg';
 import gal6 from '../assets/new-template/images/gallery/6.jpg';
 
-export default function FooterSection() {
+const Footer = ({ paddingTop = '80px' }) => {
   return (
     <>
-      <footer className="agape-vows-footer" style={{
+      <footer className="agape-vows-footer mt-auto" style={{
         background: 'linear-gradient(135deg, #7b2ff7, #9333ea, #6a11cb)',
         color: '#fff',
-        paddingTop: '80px',
-        paddingBottom: '5px',
-        fontFamily: "'Poppins', sans-serif"
+        paddingTop: paddingTop,
+        paddingBottom: '8px',
+        fontFamily: "'Poppins', sans-serif",
+        position: 'relative',
+        zIndex: 10
       }}>
 
         <style>{`
@@ -224,37 +81,33 @@ export default function FooterSection() {
             transform: scale(1.05);
           }
 
-          /* 🔥 UPDATED ICON ANIMATION *//* LIGHT & SMOOTH ICON ANIMATION */
-.soc-icon-wrap {
-  width: 55px;
-  height: 55px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 50%;
+          .soc-icon-wrap {
+            width: 55px;
+            height: 55px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 0 !important;
+            border-bottom: none !important;
+            transition: transform 0.25s ease, background 0.25s ease;
+          }
 
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+          .soc-icon-wrap img {
+            width: 22px;
+            transition: transform 0.25s ease;
+          }
 
-  padding: 0 !important;
-  border-bottom: none !important;
+          .soc-icon-wrap:hover {
+            transform: scale(1.1);   
+            background: rgba(255,255,255,0.35);  
+          }
 
-  transition: transform 0.25s ease, background 0.25s ease;
-}
+          .soc-icon-wrap:hover img {
+            transform: scale(1.1);  
+          }
 
-.soc-icon-wrap img {
-  width: 22px;
-  transition: transform 0.25s ease;
-}
-
-/* 🌟 Light Hover Effect */
-.soc-icon-wrap:hover {
-  transform: scale(1.1);   /* small zoom only */
-  background: rgba(255,255,255,0.35);  /* slightly brighter */
-}
-
-.soc-icon-wrap:hover img {
-  transform: scale(1.09);  /* very light zoom */
-}
           .gal-grid-item {
             width: 100%;
             aspect-ratio: 1;
@@ -325,13 +178,13 @@ export default function FooterSection() {
             <div style={{ flex: '1 1 220px', minWidth: '200px' }}>
               <h4 className="footer-section-title">Quick Links</h4>
               <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Churches</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Refund</a></li>
+                <li><Link to="/about-us">About Us</Link></li>
+                <li><Link to="/faq">FAQs</Link></li>
+                <li><Link to="/user/events-page">Events</Link></li>
+                <li><Link to="/church-partner">Churches</Link></li>
+                <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+                <li><Link to="/terms">Terms</Link></li>
+                <li><Link to="/refund">Refund</Link></li>
               </ul>
             </div>
 
@@ -392,4 +245,6 @@ export default function FooterSection() {
       </footer>
     </>
   );
-}
+};
+
+export default Footer;

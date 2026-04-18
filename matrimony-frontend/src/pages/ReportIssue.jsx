@@ -569,32 +569,31 @@ const ReportIssue = () => {
         <LayoutComponent />
       </div>
 
-      <div className="pt-28">
-
-        {/* Hero Section */}
-        <section className="bg-gray-600 text-white py-20">
-          <div className="max-w-6xl mx-auto px-4 text-center">
-            <span className="bg-white text-purple-600 px-4 py-1 rounded-full text-sm font-semibold">
-              #1 Support Center
-            </span>
-
-            <h1 className="text-5xl md:text-6xl font-extrabold mt-6 text-purple-500">
-              Report Your Issue
-            </h1>
-
-            <p className="mt-4 text-lg text-purple-100 max-w-2xl mx-auto">
-              Facing a problem? Let us know and we’ll fix it quickly and efficiently.
-            </p>
-
-            <p className="mt-2 text-sm text-gray-200">
-              You can report issues even without logging in.
-            </p>
+      <div className="pt-16">
+        <div className="str">
+          <div className="ban-inn ab-ban">
+            <div className="container">
+              <div className="row">
+                <div className="hom-ban">
+                  <div className="ban-tit">
+                    <span>
+                      <i className="no1">#1</i> Support Center
+                    </span>
+                    <h1>Report Your Issue</h1>
+                    <p>
+                      Facing a problem? Let us know and we’ll fix it quickly and efficiently.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
+      </div>
 
-        {/* Form Section */}
-        <section className="py-20 px-4">
-          <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-3xl p-10 border border-gray-100">
+      {/* Form Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-3xl p-10 border border-gray-100">
 
             <h2 className="text-2xl font-semibold mb-10 text-gray-800 text-center">
               Submit Your Issue
@@ -719,7 +718,7 @@ const ReportIssue = () => {
           </div>
         </section>
 
-      </div>
+
 
       <Footer />
     </div>

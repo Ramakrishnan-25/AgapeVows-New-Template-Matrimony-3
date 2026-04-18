@@ -182,88 +182,97 @@ const Blogs = () => {
         <LayoutComponent />
       </div>
 
-      {/* CONTENT */}
-      <div className="pt-40 pb-20 px-4 flex-grow">
-        <div className="max-w-6xl mx-auto">
-
-          <h1 className="text-4xl font-bold text-gray-800 mb-14 text-center">
-            All Blog Posts
-          </h1>
-
-          {loading && (
-            <p className="text-center text-gray-500">Loading blogs...</p>
-          )}
-
-          {!loading && blogs.length === 0 && (
-            <p className="text-center text-gray-500">No blogs available.</p>
-          )}
-
-          {/* ✅ 2 BLOGS PER ROW */}
-          <div className="grid md:grid-cols-2 gap-10">
-            {!loading &&
-              blogs.map((blog, index) => (
-                <div
-                  key={blog._id}
-                  className={`${bgColors[index % bgColors.length]} 
-                  rounded-3xl p-8 shadow-sm hover:shadow-xl 
-                  transition duration-300`}
-                >
-
-                  {/* IMAGE */}
-                  <div className="w-full max-h-[400px] flex items-center justify-center bg-gray-100 rounded-2xl mb-6 overflow-hidden">
-                    <img
-                      src={blog.coverImage}
-                      alt={blog.title}
-                      className="w-full h-full object-contain"
-                    />
+      <div className="pt-16">
+        {/* SECTION 1: HEADER BANNER */}
+        <section className="str">
+          <div className="ban-inn ab-ban mb-0">
+            <div className="container">
+              <div className="row">
+                <div className="hom-ban">
+                  <div className="ban-tit">
+                    <span>
+                      <i className="no1">#1</i> Wedding Website
+                    </span>
+                    <h1>Our Blogs</h1>
+                    <p>
+                      Inspiration, tips, and stories to help you on your journey to a beautiful wedding.
+                    </p>
                   </div>
-                  {/* CATEGORY + DATE */}
-                  <p className="text-sm text-gray-500 mb-3">
-                    <span className="font-semibold text-gray-700">
-                      {blog.category}
-                    </span>{" "}
-                    -{" "}
-                    {new Date(blog.createdAt).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
-                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                  {/* TITLE */}
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    {blog.title}
-                  </h2>
+        {/* SECTION 2: BLOG CONTENT */}
+        <section className="bg-gray-50 flex-grow pt-20 pb-20 px-4">
+          <div className="max-w-6xl mx-auto">
+            <h1 className="text-4xl font-bold text-gray-800 mb-14 text-center">
+              All Blog Posts
+            </h1>
 
-                  {/* ✅ FULL CONTENT SHOW */}
-                  <p className="text-gray-600 leading-relaxed mb-6 whitespace-pre-line">
-                    {blog.content}
-                  </p>
+            {loading && (
+              <p className="text-center text-gray-500">Loading blogs...</p>
+            )}
 
-                  {/* AUTHOR */}
-                  <div className="flex items-center gap-4">
-                    <img
-                      src={blog.authorPhoto}
-                      alt="author"
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-semibold text-gray-800">
-                        {blog.authorName}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        {blog.authorRole}
-                      </p>
+            {!loading && blogs.length === 0 && (
+              <p className="text-center text-gray-500">No blogs available.</p>
+            )}
+
+            <div className="grid md:grid-cols-2 gap-10">
+              {!loading &&
+                blogs.map((blog, index) => (
+                  <div
+                    key={blog._id}
+                    className={`${bgColors[index % bgColors.length]} 
+                    rounded-3xl p-8 shadow-sm hover:shadow-xl 
+                    transition duration-300`}
+                  >
+                    <div className="w-full max-h-[400px] flex items-center justify-center bg-gray-100 rounded-2xl mb-6 overflow-hidden">
+                      <img
+                        src={blog.coverImage}
+                        alt={blog.title}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <p className="text-sm text-gray-500 mb-3">
+                      <span className="font-semibold text-gray-700">
+                        {blog.category}
+                      </span>{" "}
+                      -{" "}
+                      {new Date(blog.createdAt).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </p>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                      {blog.title}
+                    </h2>
+                    <p className="text-gray-600 leading-relaxed mb-6 whitespace-pre-line">
+                      {blog.content}
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <img
+                        src={blog.authorPhoto}
+                        alt="author"
+                        className="w-12 h-12 rounded-full object-cover"
+                      />
+                      <div>
+                        <p className="font-semibold text-gray-800">
+                          {blog.authorName}
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          {blog.authorRole}
+                        </p>
+                      </div>
                     </div>
                   </div>
-
-                </div>
-              ))}
+                ))}
+            </div>
           </div>
-
-        </div>
+        </section>
       </div>
-
       <Footer />
     </div>
   );

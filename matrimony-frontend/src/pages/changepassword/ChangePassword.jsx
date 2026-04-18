@@ -689,10 +689,17 @@ const ChangePassword = () => {
           <div className="container">
             <div className="row">
               <div className="inn">
-                <div className="lhs">
+                <div
+                  className="lhs"
+                  style={{
+                    background: '#A020F0',
+                  }}
+                >
                   <div className="tit">
                     <h2>
-                      Create your <b>new password</b> Easy and fast.
+                      <span style={{ color: "#fff" }}>Create your </span>
+                      <b style={{ color: "#FFD700" }}>New Password</b>
+                      <span style={{ color: "#fff" }}> Easy and fast.</span>
                     </h2>
                   </div>
                   <div className="im">
@@ -846,7 +853,7 @@ const ChangePassword = () => {
 
       <Footer />
 
-      <CopyRights />
+      {/* <CopyRights /> */}
     </div>
   );
 };
