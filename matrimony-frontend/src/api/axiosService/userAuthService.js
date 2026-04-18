@@ -388,7 +388,7 @@ export const uploadIdProof = async (userId, file) => {
 export const submitFeedback = async (feedbackData) => {
   try {
     const response = await userInstance.post(
-      `/api/feedback/submit-feedback`,
+      `/submit-feedback`,
       feedbackData
     );
     return response;
